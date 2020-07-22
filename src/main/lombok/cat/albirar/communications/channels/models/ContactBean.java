@@ -16,10 +16,12 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.models;
+package cat.albirar.communications.channels.models;
 
 import java.io.Serializable;
+import java.util.Locale;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -27,13 +29,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 /**
- * A communication channel, for verifying process or recover password, etc.
+ * Data contact of a sender or receiver in SMS or EMAIL.
  * @author Octavi Forn&eacute;s &lt;<a href="mailto:ofornes@albirar.cat">ofornes@albirar.cat</a>&gt;
  * @since 1.0.0
  */
@@ -42,22 +45,20 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(Include.NON_EMPTY)
-public class CommunicationChannelBean implements Serializable {
-    private static final long serialVersionUID = 4988280421025258444L;
-    /**
-     * The channel type, required.
-     * @param channeltype The channel type, required
-     * @return The channel type
-     */
-    @Setter(onParam_ = { @NotNull })
-    @NotNull
-    private ECommunicationChannelType channelType;
-    /**
-     * The channel id, can be email or mobile.
-     * @param channelId The channelId, can be an email or a mobile phone number, required
-     * @return The channelId, can be an email or a mobile phone number
-     */
-    @Setter(onParam_ = { @NotBlank })
+public class ContactBean implements Serializable {
+    private static final long serialVersionUID = 7887468884518241617L;
+
     @NotBlank
-    private String channelId;
+    @Setter(onParam_ = { @NotBlank })
+    private String displayName;
+    
+    @NotNull
+    @Setter(onParam_ = { @NotNull })
+    @Default
+    private Locale preferredLocale = Locale.getDefault();
+    
+    @NotNull
+    @Valid
+    @Setter(onParam_ = { @NotNull, @Valid })
+    private LocalizableAttributesCommunicationChannelBean channelBean;
 }

@@ -34,9 +34,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import cat.albirar.communications.channels.models.ContactBean;
+import cat.albirar.communications.channels.models.ECommunicationChannelType;
+import cat.albirar.communications.channels.models.LocalizableAttributesCommunicationChannelBean;
 import cat.albirar.communications.messages.models.MessageBean;
-import cat.albirar.communications.models.CommunicationChannelBean;
-import cat.albirar.communications.models.ECommunicationChannelType;
 import cat.albirar.communications.services.ICommunicationService;
 import cat.albirar.communications.test.AbstractCommunicationsTest;
 import cat.albirar.communications.test.EmailTestContainerExtension;
@@ -93,11 +94,21 @@ public class CommunicationServiceTest extends AbstractCommunicationsTest {
         
         toAddress = generateEmailTo();
         id = commService.pushMessage(MessageBean.builder()
-                .address(CommunicationChannelBean.builder()
-                        .channelType(ECommunicationChannelType.EMAIL)
-                        .channelId(toAddress)
+                .receiver(ContactBean.builder()
+                        .channelBean(LocalizableAttributesCommunicationChannelBean.builder()
+                            .channelType(ECommunicationChannelType.EMAIL)
+                            .channelId(toAddress)
+                            .build())
+                        .displayName(toAddress)
                         .build())
-                .addressFrom(FROM)
+                .sender(ContactBean.builder()
+                        .channelBean(LocalizableAttributesCommunicationChannelBean.builder()
+                                .channelId(FROM)
+                                .channelType(ECommunicationChannelType.EMAIL)
+                                .build()
+                                )
+                        .displayName(FROM)
+                        .build())
                 .title(TITLE)
                 .body(BODY_TEXT)
                 .build()
@@ -124,11 +135,21 @@ public class CommunicationServiceTest extends AbstractCommunicationsTest {
         toAddress = generateEmailTo();
         
         sendMessage = MessageBean.builder()
-                .address(CommunicationChannelBean.builder()
-                        .channelType(ECommunicationChannelType.EMAIL)
-                        .channelId(toAddress)
+                .receiver(ContactBean.builder()
+                        .channelBean(LocalizableAttributesCommunicationChannelBean.builder()
+                            .channelType(ECommunicationChannelType.EMAIL)
+                            .channelId(toAddress)
+                            .build())
+                        .displayName(toAddress)
                         .build())
-                .addressFrom(FROM)
+                .sender(ContactBean.builder()
+                        .channelBean(LocalizableAttributesCommunicationChannelBean.builder()
+                                .channelId(FROM)
+                                .channelType(ECommunicationChannelType.EMAIL)
+                                .build()
+                                )
+                        .displayName(FROM)
+                        .build())
                 .title(TITLE)
                 .body(BODY_HTML)
                 .bodyType(EContentType.HTML)

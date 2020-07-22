@@ -28,7 +28,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import cat.albirar.communications.models.CommunicationChannelBean;
+import cat.albirar.communications.channels.models.ContactBean;
 import cat.albirar.template.engine.EContentType;
 import lombok.AllArgsConstructor;
 import lombok.Builder.Default;
@@ -53,11 +53,11 @@ public class MessageBean implements Serializable {
     @NotNull
     @Valid
     @Setter(onParam_ = { @NotNull, @Valid })
-    private CommunicationChannelBean address;
-    @NotBlank
+    private ContactBean receiver;
+    @NotNull
     @Valid
-    @Setter(onParam_ = { @NotBlank, @Valid })
-    private String addressFrom;
+    @Setter(onParam_ = { @NotNull, @Valid })
+    private ContactBean sender;
     
     @NotBlank
     @Setter(onParam_ = { @NotBlank })

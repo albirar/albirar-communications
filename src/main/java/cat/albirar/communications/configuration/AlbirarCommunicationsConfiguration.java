@@ -24,11 +24,6 @@ import static cat.albirar.communications.configuration.PropertiesComm.VALUE_PORT
 import static cat.albirar.communications.configuration.PropertiesComm.VALUE_USERNAME_CONNECTION_PROPERTY;
 import static cat.albirar.communications.configuration.PropertiesComm.VALUE_VIRTUALHOST_CONNECTION_PROPERTY;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
-import java.util.stream.Collectors;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Binding;
@@ -51,16 +46,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.EnumerablePropertySource;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
 import cat.albirar.communications.processors.EmailSenderProcessor;
 import cat.albirar.communications.processors.SmsSenderProcessor;
+import cat.albirar.communications.providers.email.impl.PropertiesConfigurableEmailProvider;
+import cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider;
 import cat.albirar.communications.services.impl.CommunicationServiceImpl;
+import cat.albirar.communications.sms.providers.clickandsend.ClickAndSendProperties;
 
 /**
  * Configuration class for this module.
@@ -68,7 +62,7 @@ import cat.albirar.communications.services.impl.CommunicationServiceImpl;
  * @since 1.0.0
  */
 @Configuration
-@ComponentScan(basePackageClasses = {EmailSenderProcessor.class, CommunicationServiceImpl.class})
+@ComponentScan(basePackageClasses = {EmailSenderProcessor.class, CommunicationServiceImpl.class, ClickAndSendSmsSenderProvider.class, ClickAndSendProperties.class, PropertiesConfigurableEmailProvider.class})
 @PropertySource("classpath:/cat/albirar/communications/albirar-communications.properties")
 public class AlbirarCommunicationsConfiguration {
     private static final Logger LOGGER = LoggerFactory.getLogger(AlbirarCommunicationsConfiguration.class);
@@ -84,17 +78,12 @@ public class AlbirarCommunicationsConfiguration {
     @Value(VALUE_PASSWORD_CONNECTION_PROPERTY)
     private String password;
     
-    @Value(PropertiesComm.EXCHANGE_NAME)
-    private String exchangeName;
+    private String exchangeName = PropertiesComm.EXCHANGE_NAME;
     
-    @Value(PropertiesComm.QUEUE_SEND_EMAIL)
-    private String emailSendQueueName;
-    @Value(PropertiesComm.QUEUE_REPORT_EMAIL)
-    private String emailReportQueueName;
-    @Value(PropertiesComm.QUEUE_SEND_SMS)
-    private String smsSendQueueName;
-    @Value(PropertiesComm.QUEUE_REPORT_SMS)
-    private String smsReportQueueName;
+    private String emailSendQueueName = PropertiesComm.QUEUE_SEND_EMAIL;
+    private String emailReportQueueName = PropertiesComm.QUEUE_REPORT_EMAIL;
+    private String smsSendQueueName = PropertiesComm.QUEUE_SEND_SMS;
+    private String smsReportQueueName = PropertiesComm.QUEUE_REPORT_SMS;
     
     // Basic configuration...
 
@@ -218,51 +207,5 @@ public class AlbirarCommunicationsConfiguration {
         container.setQueues(smsSendQueue);
         container.setMessageListener(smsSenderProcessor);
         return container;
-    }
-    
-    @Bean
-    public JavaMailSender javaMailSender(ConfigurableEnvironment env) {
-        JavaMailSenderImpl jm;
-        List<EnumerablePropertySource<?>> propSrc;
-        Properties props;
-        String host;
-        int port;
-        String username;
-        String password;
-        
-        props = new Properties();
-        propSrc = env.getPropertySources().stream()
-                .filter(ps -> EnumerablePropertySource.class.isAssignableFrom(ps.getClass()))
-                .map(ps -> (EnumerablePropertySource<?>) ps)
-                .collect(Collectors.toList())
-                ;
-        for(EnumerablePropertySource<?> eps : propSrc) {
-            Arrays.stream(eps.getPropertyNames())
-            .filter(name -> name.startsWith(PropertiesComm.JAVAMAIL_PROPERTIES_SUFIX_ROOT_PROPERTY_NAME))
-            .forEach(name -> props.put(name.substring(PropertiesComm.JAVAMAIL_PROPERTIES_SUFIX_ROOT_PROPERTY_NAME.length()), env.getProperty(name)));
-            ;
-        }
-
-        host = env.getRequiredProperty(PropertiesComm.JAVAMAIL_HOST_PROPERTY_NAME, String.class);
-        port = env.getRequiredProperty(PropertiesComm.JAVAMAIL_PORT_PROPERTY_NAME, Integer.class);
-        username = env.getRequiredProperty(PropertiesComm.JAVAMAIL_USERNAME_PROPERTY_NAME, String.class);
-        password = env.getRequiredProperty(PropertiesComm.JAVAMAIL_PASSWORD_PROPERTY_NAME, String.class);
-        
-        LOGGER.debug("Creating javamail sender with values: {}",
-                new StringBuilder("host: '").append(host)
-                .append("', port: ").append(port)
-                .append("', username: '").append(username)
-                .append("', password: '").append(password).append("'")
-                .append(", props: ").append(props)
-                .toString()
-                );
-        jm = new JavaMailSenderImpl();
-        jm.setJavaMailProperties(props);
-        jm.setHost(host);
-        jm.setPort(port);
-        jm.setUsername(username);
-        jm.setPassword(password);
-        
-        return jm;
     }
 }

@@ -27,7 +27,6 @@ import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 
 import cat.albirar.communications.configuration.PropertiesComm;
 import cat.albirar.communications.messages.models.MessageBean;
@@ -50,11 +49,9 @@ public abstract class AbstractSingleProcessor implements MessageListener {
     @Autowired
     private NamingStrategy namingStrategy;
     
-    @Value(PropertiesComm.EXCHANGE_NAME)
-    private String exchangeName;
+    private String exchangeName = PropertiesComm.EXCHANGE_NAME;
 
-    @Value(PropertiesComm.QUEUE_REPORT_EMAIL)
-    private String emailReportQueueName;
+    private String emailReportQueueName = PropertiesComm.QUEUE_REPORT_EMAIL;
 
     /**
      * {@inheritDoc}

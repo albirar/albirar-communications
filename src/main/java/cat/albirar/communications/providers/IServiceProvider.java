@@ -16,32 +16,19 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.models;
+package cat.albirar.communications.providers;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 /**
- * Types of channel communication.
+ * The base contract for all service providers.
  * @author Octavi Forn&eacute;s &lt;<a href="mailto:ofornes@albirar.cat">ofornes@albirar.cat</a>&gt;
  * @since 1.0.0
  */
-public enum ECommunicationChannelType {
-    EMAIL,
-    MOBILE
-    ;
+public interface IServiceProvider {
     /**
-     * Test if the indicated {@code channelType} allow HTML on body or not.
-     * @param channelType The channel type
-     * @return true if channel allow html on body and false if not
+     * The name of this provider, used to select among other providers.
+     * @return The name
      */
-    public static final boolean isHtmlBodyChannel(@NotNull ECommunicationChannelType channelType) {
-        return channelType == ECommunicationChannelType.EMAIL;
-    }
-    /**
-     * Test if this channel allow HTML on body or not.
-     * @return true if this channel allow html on body and false if not
-     */
-    public boolean isHtmlBodyChannel() {
-        return this == ECommunicationChannelType.EMAIL;
-    }
+    public @NotBlank String getName();
 }

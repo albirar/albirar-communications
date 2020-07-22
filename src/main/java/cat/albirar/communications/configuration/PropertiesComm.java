@@ -163,4 +163,6 @@ public interface PropertiesComm {
      * Default value for sms report queue name.
      */
     public static final String QUEUE_REPORT_SMS = "smsSendQueue";
+    
+    
 }

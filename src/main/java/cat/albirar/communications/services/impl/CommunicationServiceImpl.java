@@ -28,7 +28,6 @@ import org.springframework.amqp.core.NamingStrategy;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import cat.albirar.communications.configuration.PropertiesComm;
@@ -52,20 +51,15 @@ public class CommunicationServiceImpl implements ICommunicationService {
     @Autowired
     private NamingStrategy namingStrategy;
 
-    @Value(PropertiesComm.EXCHANGE_NAME)
-    private String exchangeName;
+    private String exchangeName = PropertiesComm.EXCHANGE_NAME;
 
-    @Value(PropertiesComm.QUEUE_SEND_EMAIL)
-    private String emailSendQueueName;
+    private String emailSendQueueName = PropertiesComm.QUEUE_SEND_EMAIL;
 
-    @Value(PropertiesComm.QUEUE_REPORT_EMAIL)
-    private String emailReportQueueName;
+    private String emailReportQueueName = PropertiesComm.QUEUE_REPORT_EMAIL;
 
-    @Value(PropertiesComm.QUEUE_SEND_SMS)
-    private String smsSendQueueName;
+    private String smsSendQueueName = PropertiesComm.QUEUE_SEND_SMS;
 
-    @Value(PropertiesComm.QUEUE_REPORT_SMS)
-    private String smsReportQueueName;
+    private String smsReportQueueName = PropertiesComm.QUEUE_REPORT_SMS;
 
     /**
      * {@inheritDoc}
@@ -90,6 +84,10 @@ public class CommunicationServiceImpl implements ICommunicationService {
         return crlt.getId();
     }
 
+    /**
+     * Create the {@link CorrelationData} for a message.
+     * @return The correlation data
+     */
     private CorrelationData createCorrelationData() {
         CorrelationData crlt;
 

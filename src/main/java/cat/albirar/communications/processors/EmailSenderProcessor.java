@@ -18,28 +18,27 @@
  */
 package cat.albirar.communications.processors;
 
+import java.util.List;
 import java.util.Optional;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMessage.RecipientType;
+import javax.validation.constraints.Size;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
 import cat.albirar.communications.configuration.PropertiesComm;
 import cat.albirar.communications.messages.models.MessageBean;
+import cat.albirar.communications.providers.ProviderException;
+import cat.albirar.communications.providers.email.IEmailProvider;
 import cat.albirar.communications.status.EStatusMessage;
 import cat.albirar.communications.status.models.MessageStatusBean;
 
 /**
  * The email sender processor.
  * Receive messages and then, send it through email server connection.
- * The result will be put on {@link PropertiesComm#EMAIL_ROUTE_REPORT_PROPERTY_NAME} routing.
+ * The result will be put on {@link PropertiesComm#QUEUE_REPORT_EMAIL} routing.
  * @author Octavi Forn&eacute;s &lt;<a href="mailto:ofornes@albirar.cat">ofornes@albirar.cat</a>&gt;
  * @since 1.0.0
  */
@@ -48,32 +47,25 @@ public class EmailSenderProcessor extends AbstractSingleProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmailSenderProcessor.class);
     
     @Autowired
-    private JavaMailSender emailSender;
+    private @Size(min=1) List<IEmailProvider> providers;
     /**
      * {@inheritDoc}
      */
     @Override
     protected void processMessage(String messageId, MessageBean message) {
-        MimeMessage mmsg;
         MessageStatusBean r;
         
         LOGGER.debug("Sending email for message {}", message);
-        mmsg = emailSender.createMimeMessage();
+        // TODO Until adapted, use the first one
         try {
-            mmsg.setSubject(message.getTitle());
-            mmsg.setRecipient(RecipientType.TO, new InternetAddress(message.getAddress().getChannelId()));
-            mmsg.setFrom(message.getAddressFrom());
-            mmsg.setContent(message.getBody(), new StringBuffer(message.getBodyType().getMediaType())
-                    .append("; charset=").append(message.getBodyCharSet()).toString());
-            emailSender.send(mmsg);
+            providers.get(0).sendEmail(message.getSender(), message.getReceiver(), message.getTitle(), message.getBody(), message.getBodyType().getMediaType(), message.getBodyCharSet().name());
             r = MessageStatusBean.copyBuilder(message)
                     .status(EStatusMessage.SEND)
                     .messageId(messageId)
                     .build()
                     ;
             reportMessage(r);
-        }
-        catch(MessagingException e) {
+        } catch(ProviderException e) {
             String errMsg;
             
             errMsg = String.format("On preparing or sending the mail message for %s (%s)", message, e.getMessage());

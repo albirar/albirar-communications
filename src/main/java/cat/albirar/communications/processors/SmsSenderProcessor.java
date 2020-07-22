@@ -18,11 +18,21 @@
  */
 package cat.albirar.communications.processors;
 
+import java.util.List;
+import java.util.Optional;
+
+import javax.validation.constraints.Size;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import cat.albirar.communications.messages.models.MessageBean;
+import cat.albirar.communications.providers.ProviderException;
+import cat.albirar.communications.providers.sms.ISmsSenderProvider;
+import cat.albirar.communications.status.EStatusMessage;
+import cat.albirar.communications.status.models.MessageStatusBean;
 
 /**
  * The processor for sending sms messages.
@@ -33,12 +43,36 @@ import cat.albirar.communications.messages.models.MessageBean;
 public class SmsSenderProcessor extends AbstractSingleProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(SmsSenderProcessor.class);
     
+    @Autowired
+    private @Size(min = 1) List<ISmsSenderProvider> smsProviders;
     /**
      * {@inheritDoc}
      */
     @Override
     protected void processMessage(String messageId, MessageBean message) {
+        MessageStatusBean r;
         LOGGER.info("Sending SMS for message {}", message);
-        // TODO implementation pending
+        
+        try {
+            // TODO Until adapted, use the first one
+            smsProviders.get(0).sendSms(message.getSender(), message.getReceiver(), message.getBody());
+            r = MessageStatusBean.copyBuilder(message)
+                    .status(EStatusMessage.SEND)
+                    .messageId(messageId)
+                    .build()
+                    ;
+            reportMessage(r);
+        } catch(ProviderException e) {
+            String errMsg;
+            
+            errMsg = String.format("On preparing or sending the SMS message for %s (%s)", message, e.getMessage());
+            LOGGER.error(errMsg, e);
+            r = MessageStatusBean.copyBuilder(message)
+                    .status(EStatusMessage.ERROR)
+                    .errorMessage(Optional.of(errMsg))
+                    .build()
+                    ;
+            reportMessage(r);
+        }
     }
 }

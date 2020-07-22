@@ -16,11 +16,11 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.models;
+package cat.albirar.communications.channels.models;
 
-import java.util.Locale;
-import java.util.Map;
+import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -28,43 +28,36 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * A {@link Locale localized} communication channel with some variables.
- * Enable the use of a specific language and region for a destination.
+ * A communication channel, for verifying process or recover password, etc.
  * @author Octavi Forn&eacute;s &lt;<a href="mailto:ofornes@albirar.cat">ofornes@albirar.cat</a>&gt;
  * @since 1.0.0
  */
 @SuperBuilder(toBuilder = true)
 @Data
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(Include.NON_EMPTY)
-public class LocalizableAttributesCommunicationChannelBean extends CommunicationChannelBean {
-    private static final long serialVersionUID = 4450726832946360111L;
-    
+public class CommunicationChannelBean implements Serializable {
+    private static final long serialVersionUID = 4988280421025258444L;
     /**
-     * The locale for this communication channel.
+     * The channel type, required.
+     * @param channeltype The channel type, required
+     * @return The channel type
      */
-    @NotNull
     @Setter(onParam_ = { @NotNull })
-    private Locale locale;
-    
     @NotNull
-    @Setter(onParam_ = { @NotNull })
-    private Map<String, Object> attributes;
-    
-    public static LocalizableAttributesCommunicationChannelBeanBuilder<?,?> builder(CommunicationChannelBean parent) {
-        return (LocalizableAttributesCommunicationChannelBeanBuilder<?, ?>) LocalizableAttributesCommunicationChannelBean.builder()
-            .channelType(parent.getChannelType())
-            .channelId(parent.getChannelId())
-            ;
-    }
+    private ECommunicationChannelType channelType;
+    /**
+     * The channel id, can be email or mobile.
+     * @param channelId The channelId, can be an email or a mobile phone number, required
+     * @return The channelId, can be an email or a mobile phone number
+     */
+    @Setter(onParam_ = { @NotBlank })
+    @NotBlank
+    private String channelId;
 }

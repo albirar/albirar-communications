@@ -16,18 +16,17 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.status.models;
+package cat.albirar.communications.channels.models;
 
-import java.util.Optional;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import cat.albirar.communications.messages.models.MessageBean;
-import cat.albirar.communications.status.EStatusMessage;
 import lombok.AllArgsConstructor;
 import lombok.Builder.Default;
 import lombok.Data;
@@ -38,38 +37,38 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * The status of a message.
+ * A {@link Locale localized} communication channel with some variables.
+ * Enable the use of a specific language and region for a destination.
  * @author Octavi Forn&eacute;s &lt;<a href="mailto:ofornes@albirar.cat">ofornes@albirar.cat</a>&gt;
  * @since 1.0.0
  */
 @SuperBuilder(toBuilder = true)
 @Data
-@ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(Include.NON_EMPTY)
-public class MessageStatusBean extends MessageBean {
-    private static final long serialVersionUID = -4642994972130453525L;
-    @NotBlank
-    @Setter(onParam_ = { @NotBlank })
-    private String messageId;
-    @NotNull
-    @Setter(onParam_ = { @NotNull })
-    private EStatusMessage status;
-    @Default
-    @NotNull
-    @Setter(onParam_ = { @NotNull })
-    private Optional<String> errorMessage = Optional.empty();
+public class LocalizableAttributesCommunicationChannelBean extends CommunicationChannelBean {
+    private static final long serialVersionUID = 4450726832946360111L;
     
-    public static final MessageStatusBeanBuilder<?, ?> copyBuilder(MessageBean message) {
-        return (MessageStatusBeanBuilder<?, ?>) MessageStatusBean.builder()
-                .receiver(message.getReceiver())
-                .sender(message.getSender())
-                .title(message.getTitle())
-                .bodyType(message.getBodyType())
-                .bodyCharSet(message.getBodyCharSet())
-                .body(message.getBody())
-                ;
+    /**
+     * The locale for this communication channel.
+     */
+    @NotNull
+    @Setter(onParam_ = { @NotNull })
+    @Default
+    private Locale locale = Locale.getDefault();
+    
+    @NotNull
+    @Setter(onParam_ = { @NotNull })
+    @Default
+    private Map<String, Object> attributes = new TreeMap<>();
+    
+    public static LocalizableAttributesCommunicationChannelBeanBuilder<?,?> builderCopy(CommunicationChannelBean parent) {
+        return (LocalizableAttributesCommunicationChannelBeanBuilder<?, ?>) LocalizableAttributesCommunicationChannelBean.builder()
+            .channelType(parent.getChannelType())
+            .channelId(parent.getChannelId())
+            ;
     }
 }
