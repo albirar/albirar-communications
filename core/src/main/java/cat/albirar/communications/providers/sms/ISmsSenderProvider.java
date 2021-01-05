@@ -22,7 +22,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.validation.annotation.Validated;
+
 import cat.albirar.communications.channels.models.ContactBean;
+import cat.albirar.communications.channels.models.ECommunicationChannelType;
 import cat.albirar.communications.providers.IServiceProvider;
 import cat.albirar.communications.providers.ProviderException;
 
@@ -31,15 +34,18 @@ import cat.albirar.communications.providers.ProviderException;
  * @author Octavi Forn&eacute;s &lt;<a href="mailto:ofornes@albirar.cat">ofornes@albirar.cat</a>&gt;
  * @since 1.0.0
  */
+@Validated
 public interface ISmsSenderProvider extends IServiceProvider {
     /**
      * Send a SMS message to a recipient number.
      * <b>If no exception is raised, the message is considered send.</b>
      * @param messageId A unique id for this sms operation
+     * @param from The sender number
      * @param recipient The recipient number
      * @param message The message
      * @return true if sms was send and false if not
      * @throws ProviderException If any problem sending the message was produced
+     * @throws IllegalArgumentException If {@code from} or {@code recipient} or both, are not of {@link ECommunicationChannelType#SMS} type
      */
     public void sendSms(@NotBlank String messageId, @NotNull @Valid ContactBean from, @NotNull @Valid ContactBean recipient, @NotBlank String message);
 }

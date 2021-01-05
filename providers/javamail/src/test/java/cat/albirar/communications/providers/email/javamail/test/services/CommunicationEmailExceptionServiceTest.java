@@ -16,8 +16,9 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.test.services;
+package cat.albirar.communications.providers.email.javamail.test.services;
 
+import static org.awaitility.Awaitility.await;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
@@ -28,7 +29,6 @@ import java.util.concurrent.TimeUnit;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-import org.awaitility.Awaitility;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -71,7 +71,7 @@ public class CommunicationEmailExceptionServiceTest extends AbstractEmailService
         
         messageId = commService.pushMessage(buildEmailMessage(BODY_HTML, EContentType.HTML));
         oSt = Optional.empty();
-        Awaitility.await().atMost(1, TimeUnit.SECONDS).until(() -> commService.isStatusMessage(messageId));
+        await().atLeast(10, TimeUnit.MILLISECONDS).and().atMost(5, TimeUnit.DAYS).until(() -> commService.isStatusMessage(messageId));
         oSt = commService.popStatusMessage(messageId);
         Assert.assertTrue(oSt.isPresent());
         st = oSt.get();

@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.test.services;
+package cat.albirar.communications.providers.email.javamail.test.services;
 
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;

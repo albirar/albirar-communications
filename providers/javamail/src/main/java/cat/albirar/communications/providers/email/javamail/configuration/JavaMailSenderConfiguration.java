@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.providers.email.configuration;
+package cat.albirar.communications.providers.email.javamail.configuration;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,7 +35,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import cat.albirar.communications.configuration.IPropertiesComm;
-import cat.albirar.communications.providers.email.impl.JavaMailSenderEmailProvider;
+import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider;
 
 /**
  * An email provider that uses a {@link JavaMailSender}.

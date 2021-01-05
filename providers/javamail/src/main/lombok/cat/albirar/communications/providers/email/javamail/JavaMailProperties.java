@@ -22,8 +22,8 @@ import java.io.Serializable;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import cat.albirar.communications.providers.email.configuration.JavaMailSenderConfiguration;
-import cat.albirar.communications.providers.email.impl.JavaMailSenderEmailProvider;
+import cat.albirar.communications.providers.email.javamail.configuration.JavaMailSenderConfiguration;
+import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;

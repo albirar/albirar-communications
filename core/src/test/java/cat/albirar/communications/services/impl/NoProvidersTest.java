@@ -21,7 +21,6 @@ package cat.albirar.communications.services.impl;
 import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -40,6 +39,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.util.StringUtils;
 
 import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.messages.models.MessageBean;
@@ -93,7 +93,7 @@ public class NoProvidersTest {
         assertEquals(EStatusMessage.ERROR, st.getStatus());
         assertNotNull(st.getErrorMessage());
         assertTrue(st.getErrorMessage().isPresent());
-        assertNull(st.getErrorMessage().get().getCause());
+        assertTrue(StringUtils.hasText(st.getErrorMessage().get()));
     }
     
     @Test
@@ -112,6 +112,6 @@ public class NoProvidersTest {
         assertEquals(EStatusMessage.ERROR, st.getStatus());
         assertNotNull(st.getErrorMessage());
         assertTrue(st.getErrorMessage().isPresent());
-        assertNull(st.getErrorMessage().get().getCause());
+        assertTrue(StringUtils.hasText(st.getErrorMessage().get()));
     }
 }

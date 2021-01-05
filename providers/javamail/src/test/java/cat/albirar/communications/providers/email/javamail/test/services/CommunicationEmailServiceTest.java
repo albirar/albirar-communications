@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.test.services;
+package cat.albirar.communications.providers.email.javamail.test.services;
 
 import java.util.Optional;
 
@@ -33,8 +33,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.util.StringUtils;
 
 import cat.albirar.communications.messages.models.MessageBean;
+import cat.albirar.communications.providers.email.javamail.test.EmailTestContainerExtension;
 import cat.albirar.communications.services.ICommunicationService;
-import cat.albirar.communications.test.EmailTestContainerExtension;
 import cat.albirar.template.engine.EContentType;
 
 /**

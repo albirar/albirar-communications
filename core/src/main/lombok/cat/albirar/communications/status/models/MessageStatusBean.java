@@ -28,7 +28,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import cat.albirar.communications.messages.models.MessageBean;
-import cat.albirar.communications.providers.ProviderException;
 import cat.albirar.communications.status.EStatusMessage;
 import lombok.Builder.Default;
 import lombok.Data;
@@ -58,7 +57,7 @@ public class MessageStatusBean extends MessageBean implements Serializable {
     @Default
     @NotNull
     @Setter(onParam_ = { @NotNull })
-    private Optional<ProviderException> errorMessage = Optional.empty();
+    private Optional<String> errorMessage = Optional.empty();
     
     public static final MessageStatusBeanBuilder<?, ?> copyBuilder(MessageBean message) {
         return (MessageStatusBeanBuilder<?, ?>) MessageStatusBean.builder()

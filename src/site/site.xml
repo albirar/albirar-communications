@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 http://maven.apache.org/xsd/decoration-1.8.0.xsd"
+	name="Albirar Communications Library">
+	<bannerLeft>
+		<name>Albirar communications</name>
+		<alt>Albirar communications</alt>
+		<src>img/logo-16x4.png</src>
+		<href>https://albirar.cat</href>
+	</bannerLeft>
+	<bannerRight>
+		<src>img/logo-16x4.png</src>
+	</bannerRight>
+	<poweredBy>
+		<logo alt="Albirar" img="img/logo-16x4.png" />
+	</poweredBy>
+<!-- 	<skin> -->
+<!-- 		<groupId>lt.velykis.maven.skins</groupId> -->
+<!-- 		<artifactId>reflow-maven-skin</artifactId> -->
+<!-- 		<version>1.1.1</version> -->
+<!-- 	</skin> -->
+	<body>
+		<menu ref="reports" />
+	</body>
+</project>

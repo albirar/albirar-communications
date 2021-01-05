@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.providers.email.impl;
+package cat.albirar.communications.providers.email.javamail.impl;
 
 import java.io.UnsupportedEncodingException;
 

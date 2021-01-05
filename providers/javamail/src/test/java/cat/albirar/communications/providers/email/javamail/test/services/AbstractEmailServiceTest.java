@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.test.services;
+package cat.albirar.communications.providers.email.javamail.test.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,10 +38,10 @@ import cat.albirar.communications.channels.models.ECommunicationChannelType;
 import cat.albirar.communications.channels.models.LocalizableAttributesCommunicationChannelBean;
 import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.messages.models.MessageBean;
-import cat.albirar.communications.providers.email.configuration.JavaMailSenderConfiguration;
+import cat.albirar.communications.providers.email.javamail.configuration.JavaMailSenderConfiguration;
+import cat.albirar.communications.providers.email.javamail.test.EmailTestContainerExtension;
 import cat.albirar.communications.services.ICommunicationService;
 import cat.albirar.communications.test.AbstractCommunicationsTest;
-import cat.albirar.communications.test.EmailTestContainerExtension;
 import cat.albirar.communications.test.RabbitMqContainerExtension;
 import cat.albirar.template.engine.EContentType;
 

@@ -70,7 +70,7 @@ public class EmailSenderProcessor extends AbstractSenderProcessor {
                 r = MessageStatusBean.copyBuilder(message)
                         .status(EStatusMessage.ERROR)
                         .messageId(messageId)
-                        .errorMessage(Optional.of(new ProviderException("No email provider was configured!")))
+                        .errorMessage(Optional.of("No email provider was configured!"))
                         .build()
                         ;
                 reportMessage(IPropertiesComm.QUEUE_REPORT_EMAIL, r);
@@ -83,7 +83,7 @@ public class EmailSenderProcessor extends AbstractSenderProcessor {
             r = MessageStatusBean.copyBuilder(message)
                     .status(EStatusMessage.ERROR)
                     .messageId(messageId)
-                    .errorMessage(Optional.of(new ProviderException(errMsg,e)))
+                    .errorMessage(Optional.of(errMsg))
                     .build()
                     ;
             reportMessage(IPropertiesComm.QUEUE_REPORT_EMAIL, r);

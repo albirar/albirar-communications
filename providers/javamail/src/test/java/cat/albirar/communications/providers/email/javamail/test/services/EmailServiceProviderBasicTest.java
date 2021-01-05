@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.test.services;
+package cat.albirar.communications.providers.email.javamail.test.services;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.providers.AbstractServiceProviderBasicTest;
 import cat.albirar.communications.providers.IServiceProvider;
-import cat.albirar.communications.providers.email.configuration.JavaMailSenderConfiguration;
-import cat.albirar.communications.providers.email.impl.JavaMailSenderEmailProvider;
+import cat.albirar.communications.providers.email.javamail.configuration.JavaMailSenderConfiguration;
+import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider;
 import cat.albirar.communications.test.RabbitMqContainerExtension;
 
 /**

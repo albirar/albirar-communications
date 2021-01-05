@@ -41,7 +41,6 @@ import org.springframework.util.StringUtils;
 
 import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.messages.models.MessageBean;
-import cat.albirar.communications.providers.ProviderException;
 import cat.albirar.communications.providers.email.EmailPushBean;
 import cat.albirar.communications.providers.email.SmsPushBean;
 import cat.albirar.communications.providers.mocks.IMockEmailServiceProvider;
@@ -192,7 +191,7 @@ public class CommunicationServiceTest extends AbstractCommunicationsTest {
         String messageIdSms, messageIdEmail;
         MessageStatusBean msg;
         Optional<MessageStatusBean> omsg;
-        ProviderException t;
+        String t;
 
         emailProvider.setThrowException(true);
         smsProvider.setThrowException(true);
@@ -224,8 +223,7 @@ public class CommunicationServiceTest extends AbstractCommunicationsTest {
         assertNotNull(msg.getErrorMessage());
         assertTrue(msg.getErrorMessage().isPresent());
         t = msg.getErrorMessage().get();
-        assertTrue(StringUtils.hasText(t.getMessage()));
-        assertNotNull(t.getCause());
+        assertTrue(StringUtils.hasText(t));
         
         omsg = communicationService.popStatusMessage(messageIdSms);
         assertTrue(omsg.isPresent());
@@ -240,7 +238,6 @@ public class CommunicationServiceTest extends AbstractCommunicationsTest {
         assertNotNull(msg.getErrorMessage());
         assertTrue(msg.getErrorMessage().isPresent());
         t = msg.getErrorMessage().get();
-        assertTrue(StringUtils.hasText(t.getMessage()));
-        assertNotNull(t.getCause());
+        assertTrue(StringUtils.hasText(t));
     }
 }

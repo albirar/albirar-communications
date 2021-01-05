@@ -68,7 +68,7 @@ public class SmsSenderProcessor extends AbstractSenderProcessor {
                 r = MessageStatusBean.copyBuilder(message)
                         .status(EStatusMessage.ERROR)
                         .messageId(messageId)
-                        .errorMessage(Optional.of(new ProviderException("No sms provider was configured!")))
+                        .errorMessage(Optional.of("No sms provider was configured!"))
                         .build()
                         ;
                 reportMessage(IPropertiesComm.QUEUE_REPORT_SMS, r);
@@ -81,7 +81,7 @@ public class SmsSenderProcessor extends AbstractSenderProcessor {
             r = MessageStatusBean.copyBuilder(message)
                     .status(EStatusMessage.ERROR)
                     .messageId(messageId)
-                    .errorMessage(Optional.of(new ProviderException(errMsg, e)))
+                    .errorMessage(Optional.of(errMsg))
                     .build()
                     ;
             reportMessage(IPropertiesComm.QUEUE_REPORT_SMS, r);

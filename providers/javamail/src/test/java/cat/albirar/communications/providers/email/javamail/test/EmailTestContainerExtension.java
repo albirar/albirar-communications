@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.test;
+package cat.albirar.communications.providers.email.javamail.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ import org.springframework.util.ObjectUtils;
 import com.icegreen.greenmail.util.GreenMail;
 import com.icegreen.greenmail.util.ServerSetupTest;
 
-import cat.albirar.communications.providers.email.configuration.JavaMailSenderConfiguration;
+import cat.albirar.communications.providers.email.javamail.configuration.JavaMailSenderConfiguration;
 
 /**
  * A specific extension to start a mail server to test.

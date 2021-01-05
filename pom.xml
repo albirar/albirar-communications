@@ -3,21 +3,52 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>cat.albirar</groupId>
 		<artifactId>albirar-root-dependencies</artifactId>
 		<version>2.0.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<groupId>cat.albirar.lib</groupId>
 	<artifactId>albirar-communications</artifactId>
 	<packaging>pom</packaging>
 	<name>albirar-communications</name>
 	<description>Root pom for all communications library components</description>
 
+	<scm>
+		<connection>scm:git:https://github.com/albirar/albirar-communications.git</connection>
+		<tag>HEAD</tag>
+		<url>https://github.com/albirar/albirar-communications</url>
+	</scm>
+	
+	<developers>
+		<developer>
+			<id>1</id>
+			<name>Octavi Fornés</name>
+			<email>ofornes@albirar.cat</email>
+		</developer>
+	</developers>
+	
+	<licenses>
+		<license>
+			<name>GNU General Public License v3.0 or later</name>
+			<url>http://www.spdx.org/licenses/GPL-3.0+</url>
+		</license>
+	</licenses>
+	
 	<modules>
 		<module>core</module>
 		<module>providers</module>
 	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.9.1</version>
+			</plugin>
+		</plugins>
+	</build>
 </project>

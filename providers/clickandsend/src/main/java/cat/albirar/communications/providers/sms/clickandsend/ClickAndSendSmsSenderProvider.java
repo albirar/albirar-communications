@@ -20,23 +20,21 @@ package cat.albirar.communications.providers.sms.clickandsend;
 
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import cat.albirar.communications.channels.models.ContactBean;
+import cat.albirar.communications.channels.models.ECommunicationChannelType;
 import cat.albirar.communications.providers.ProviderException;
 import cat.albirar.communications.providers.sms.ISmsSenderProvider;
 import reactor.core.publisher.Mono;
@@ -53,6 +51,7 @@ public class ClickAndSendSmsSenderProvider implements ISmsSenderProvider {
     
     public static final String CLICK_AND_SEND_SMS_PROVIDER_NAME = "clickAndSendSmsProvider";
     
+    @Autowired
     private WebClient webClient;
     
     /**
@@ -65,20 +64,6 @@ public class ClickAndSendSmsSenderProvider implements ISmsSenderProvider {
     
     @Autowired
     private ClickAndSendProperties props;
-    
-    @PostConstruct
-    public void init() {
-        String stb;
-        
-        stb = new StringBuilder("Basic ").append(props.getUsername())
-                .append(":").append(props.getKey())
-                .toString()
-                ;
-        stb = Base64.getEncoder().encodeToString(stb.getBytes());
-        webClient = WebClient.builder().baseUrl(ClickAndSendProperties.URL_BASE)
-                .defaultHeader(HttpHeaders.AUTHORIZATION, stb)
-                .build();
-    }
     /**
      * {@inheritDoc}
      */
@@ -89,6 +74,8 @@ public class ClickAndSendSmsSenderProvider implements ISmsSenderProvider {
         ClientResponse crsp;
         String s;
 
+        Assert.isTrue(from.getChannelBean().getChannelType() == ECommunicationChannelType.SMS, "'from' channel should be of SMS type");
+        Assert.isTrue(recipient.getChannelBean().getChannelType() == ECommunicationChannelType.SMS, "'recipient' channel should be of SMS type");
         LOGGER.debug("Preparing to send a SMS...");
         msg = ClickAndSendMessage.builder()
                 .to(recipient.getChannelBean().getChannelId())
