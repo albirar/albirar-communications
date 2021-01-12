@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.providers.sms.clickandsend;
+package cat.albirar.communications.providers.sms.clickandsend.models;
 
 import java.io.Serializable;
 
@@ -37,8 +37,8 @@ import lombok.Setter;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = ClickAndSendProperties.CS_ROOT_PROPERTIES)
-public class ClickAndSendProperties implements Serializable {
+@ConfigurationProperties(prefix = ClickAndSendPropertiesBean.CS_ROOT_PROPERTIES)
+public class ClickAndSendPropertiesBean implements Serializable {
     private static final long serialVersionUID = -7667362344492003232L;
     
     /** Root for all Click&Send configuration properties. */

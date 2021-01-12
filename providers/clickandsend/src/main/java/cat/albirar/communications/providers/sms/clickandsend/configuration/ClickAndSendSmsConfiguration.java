@@ -26,8 +26,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import cat.albirar.communications.providers.sms.clickandsend.ClickAndSendProperties;
 import cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider;
+import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSendPropertiesBean;
 
 /**
  * The configuration bean for Click&Send sms provider.
@@ -44,7 +44,7 @@ public class ClickAndSendSmsConfiguration {
      * @return The configured webclient
      */
     @Bean
-    public WebClient webClient(ClickAndSendProperties props) {
+    public WebClient webClient(ClickAndSendPropertiesBean props) {
 
         String stb;
         
@@ -53,7 +53,7 @@ public class ClickAndSendSmsConfiguration {
                 .toString()
                 ;
         stb = Base64.getEncoder().encodeToString(stb.getBytes());
-        return WebClient.builder().baseUrl(ClickAndSendProperties.URL_BASE)
+        return WebClient.builder().baseUrl(ClickAndSendPropertiesBean.URL_BASE)
                 .defaultHeader(HttpHeaders.AUTHORIZATION, stb)
                 .build();
     }

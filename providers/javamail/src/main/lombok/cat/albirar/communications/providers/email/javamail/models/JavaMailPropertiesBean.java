@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.providers.email.javamail;
+package cat.albirar.communications.providers.email.javamail.models;
 
 import java.io.Serializable;
 
@@ -37,7 +37,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @ConfigurationProperties(prefix = JavaMailSenderConfiguration.JAVAMAIL_ROOT_PROPERTY_NAME)
-public class JavaMailProperties implements Serializable {
+public class JavaMailPropertiesBean implements Serializable {
     private static final long serialVersionUID = -2459571155938982292L;
     
     private String host;

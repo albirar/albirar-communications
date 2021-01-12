@@ -55,9 +55,9 @@ import cat.albirar.communications.channels.models.ContactBean;
 import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.providers.ProviderException;
 import cat.albirar.communications.providers.sms.ISmsSenderProvider;
-import cat.albirar.communications.providers.sms.clickandsend.ClickAndSendMessage;
-import cat.albirar.communications.providers.sms.clickandsend.ClickAndSendProperties;
 import cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider;
+import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSendMessageBean;
+import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSendPropertiesBean;
 import reactor.core.publisher.Mono;
 
 /**
@@ -116,9 +116,9 @@ public class ClickAndSendSmsSenderProviderTest {
         mn = mock(Mono.class);
         
         doReturn(rbus).when(webClient).post();
-        doReturn(rbs).when(rbus).uri(eq(ClickAndSendProperties.URI_SEND_SMS));
+        doReturn(rbs).when(rbus).uri(eq(ClickAndSendPropertiesBean.URI_SEND_SMS));
         doReturn(rbs).when(rbs).contentType(eq(MediaType.APPLICATION_JSON));
-        doReturn(rhs).when(rbs).<List<ClickAndSendMessage>, Mono<List<ClickAndSendMessage>>>body(any(Mono.class), any(ParameterizedTypeReference.class));
+        doReturn(rhs).when(rbs).<List<ClickAndSendMessageBean>, Mono<List<ClickAndSendMessageBean>>>body(any(Mono.class), any(ParameterizedTypeReference.class));
         doReturn(mn).when(rhs).exchange();
         doReturn(null).when(mn).block(any(Duration.class));
         
@@ -139,9 +139,9 @@ public class ClickAndSendSmsSenderProviderTest {
         mn = mock(Mono.class);
         
         doReturn(rbus).when(webClient).post();
-        doReturn(rbs).when(rbus).uri(eq(ClickAndSendProperties.URI_SEND_SMS));
+        doReturn(rbs).when(rbus).uri(eq(ClickAndSendPropertiesBean.URI_SEND_SMS));
         doReturn(rbs).when(rbs).contentType(eq(MediaType.APPLICATION_JSON));
-        doReturn(rhs).when(rbs).<List<ClickAndSendMessage>, Mono<List<ClickAndSendMessage>>>body(any(Mono.class), any(ParameterizedTypeReference.class));
+        doReturn(rhs).when(rbs).<List<ClickAndSendMessageBean>, Mono<List<ClickAndSendMessageBean>>>body(any(Mono.class), any(ParameterizedTypeReference.class));
         doReturn(mn).when(rhs).exchange();
         doThrow(RuntimeException.class).when(mn).block(any(Duration.class));
         
@@ -164,9 +164,9 @@ public class ClickAndSendSmsSenderProviderTest {
         crsp = mock(ClientResponse.class);
         
         doReturn(rbus).when(webClient).post();
-        doReturn(rbs).when(rbus).uri(eq(ClickAndSendProperties.URI_SEND_SMS));
+        doReturn(rbs).when(rbus).uri(eq(ClickAndSendPropertiesBean.URI_SEND_SMS));
         doReturn(rbs).when(rbs).contentType(eq(MediaType.APPLICATION_JSON));
-        doReturn(rhs).when(rbs).<List<ClickAndSendMessage>, Mono<List<ClickAndSendMessage>>>body(any(Mono.class), any(ParameterizedTypeReference.class));
+        doReturn(rhs).when(rbs).<List<ClickAndSendMessageBean>, Mono<List<ClickAndSendMessageBean>>>body(any(Mono.class), any(ParameterizedTypeReference.class));
         doReturn(mn).when(rhs).exchange();
         doReturn(crsp).when(mn).block(any(Duration.class));
         doReturn(HttpStatus.BAD_REQUEST).when(crsp).statusCode();
@@ -190,9 +190,9 @@ public class ClickAndSendSmsSenderProviderTest {
         crsp = mock(ClientResponse.class);
         
         doReturn(rbus).when(webClient).post();
-        doReturn(rbs).when(rbus).uri(eq(ClickAndSendProperties.URI_SEND_SMS));
+        doReturn(rbs).when(rbus).uri(eq(ClickAndSendPropertiesBean.URI_SEND_SMS));
         doReturn(rbs).when(rbs).contentType(eq(MediaType.APPLICATION_JSON));
-        doReturn(rhs).when(rbs).<List<ClickAndSendMessage>, Mono<List<ClickAndSendMessage>>>body(any(Mono.class), any(ParameterizedTypeReference.class));
+        doReturn(rhs).when(rbs).<List<ClickAndSendMessageBean>, Mono<List<ClickAndSendMessageBean>>>body(any(Mono.class), any(ParameterizedTypeReference.class));
         doReturn(mn).when(rhs).exchange();
         doReturn(crsp).when(mn).block(any(Duration.class));
         doReturn(HttpStatus.OK).when(crsp).statusCode();

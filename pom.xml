@@ -21,7 +21,7 @@
 		<tag>HEAD</tag>
 		<url>https://github.com/albirar/albirar-communications</url>
 	</scm>
-	
+
 	<developers>
 		<developer>
 			<id>1</id>
@@ -29,14 +29,14 @@
 			<email>ofornes@albirar.cat</email>
 		</developer>
 	</developers>
-	
+
 	<licenses>
 		<license>
 			<name>GNU General Public License v3.0 or later</name>
 			<url>http://www.spdx.org/licenses/GPL-3.0+</url>
 		</license>
 	</licenses>
-	
+
 	<modules>
 		<module>core</module>
 		<module>providers</module>
@@ -48,6 +48,30 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.9.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<groups>
+						<group>
+							<title>Core</title>
+							<packages>cat.albirar.communications.configuration:cat.albirar.communications.processors:cat.albirar.communications.processors.impl:cat.albirar.communications.providers:cat.albirar.communications.providers.email:cat.albirar.communications.providers.sms:cat.albirar.communications.services:cat.albirar.communications.services.impl:cat.albirar.communications.status:cat.albirar.communications.channels.models:cat.albirar.communications.configuration.models:cat.albirar.communications.messages.models:cat.albirar.communications.status.models</packages>
+						</group>
+						<group>
+							<title>JavaMail - Email provider</title>
+							<packages>cat.albirar.communications.providers.email.javamail.*</packages>
+						</group>
+						<group>
+							<title>Click&amp;Send - SMS provider</title>
+							<packages>cat.albirar.communications.providers.sms.clickandsend.*</packages>
+						</group>
+					</groups>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

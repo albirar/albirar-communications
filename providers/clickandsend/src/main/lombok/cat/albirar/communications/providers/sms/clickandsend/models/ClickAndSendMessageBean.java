@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.providers.sms.clickandsend;
+package cat.albirar.communications.providers.sms.clickandsend.models;
 
 import java.io.Serializable;
 
@@ -33,7 +33,7 @@ import lombok.experimental.SuperBuilder;
  */
 @Data
 @SuperBuilder(toBuilder = true)
-public class ClickAndSendMessage implements Serializable {
+public class ClickAndSendMessageBean implements Serializable {
     private static final long serialVersionUID = -1377886237555250668L;
     @NotBlank
     @Setter(onParam_ = { @NotBlank })

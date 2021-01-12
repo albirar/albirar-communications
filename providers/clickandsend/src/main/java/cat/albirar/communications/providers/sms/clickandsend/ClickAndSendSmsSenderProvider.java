@@ -37,6 +37,8 @@ import cat.albirar.communications.channels.models.ContactBean;
 import cat.albirar.communications.channels.models.ECommunicationChannelType;
 import cat.albirar.communications.providers.ProviderException;
 import cat.albirar.communications.providers.sms.ISmsSenderProvider;
+import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSendMessageBean;
+import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSendPropertiesBean;
 import reactor.core.publisher.Mono;
 
 /**
@@ -63,21 +65,21 @@ public class ClickAndSendSmsSenderProvider implements ISmsSenderProvider {
     }
     
     @Autowired
-    private ClickAndSendProperties props;
+    private ClickAndSendPropertiesBean props;
     /**
      * {@inheritDoc}
      */
     @Override
     public void sendSms(String messageId, ContactBean from, ContactBean recipient, String message) {
-        ClickAndSendMessage msg;
-        List<ClickAndSendMessage> body;
+        ClickAndSendMessageBean msg;
+        List<ClickAndSendMessageBean> body;
         ClientResponse crsp;
         String s;
 
         Assert.isTrue(from.getChannelBean().getChannelType() == ECommunicationChannelType.SMS, "'from' channel should be of SMS type");
         Assert.isTrue(recipient.getChannelBean().getChannelType() == ECommunicationChannelType.SMS, "'recipient' channel should be of SMS type");
         LOGGER.debug("Preparing to send a SMS...");
-        msg = ClickAndSendMessage.builder()
+        msg = ClickAndSendMessageBean.builder()
                 .to(recipient.getChannelBean().getChannelId())
                 .from(from.getDisplayName())
                 .body(message)
@@ -88,9 +90,9 @@ public class ClickAndSendSmsSenderProvider implements ISmsSenderProvider {
         LOGGER.debug("Send SMS {}", msg);
         try {
             crsp = webClient.post()
-                .uri(ClickAndSendProperties.URI_SEND_SMS)
+                .uri(ClickAndSendPropertiesBean.URI_SEND_SMS)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(Mono.just(body), new ParameterizedTypeReference<List<ClickAndSendMessage>>() {})
+                .body(Mono.just(body), new ParameterizedTypeReference<List<ClickAndSendMessageBean>>() {})
                 .exchange()
                 .block(Duration.ofMillis(props.getTimeout()))
                 ;

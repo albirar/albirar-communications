@@ -8,19 +8,19 @@
 		<alt>Albirar communications</alt>
 		<src>img/logo-16x4.png</src>
 		<href>https://albirar.cat</href>
+		<title>Albirar</title>
 	</bannerLeft>
-	<bannerRight>
-		<src>img/logo-16x4.png</src>
-	</bannerRight>
+	
 	<poweredBy>
-		<logo alt="Albirar" img="img/logo-16x4.png" />
+		<logo alt="Albirar" img="img/logo-albirar-162x184.png" href="https://albirar.cat" title="Albirar"/>
 	</poweredBy>
-<!-- 	<skin> -->
-<!-- 		<groupId>lt.velykis.maven.skins</groupId> -->
-<!-- 		<artifactId>reflow-maven-skin</artifactId> -->
-<!-- 		<version>1.1.1</version> -->
-<!-- 	</skin> -->
+	
 	<body>
+		<head>
+			<![CDATA[<link rel="icon" type="image/png" href="img/logo-albirar-icon.png"></link>]]>
+		</head>
 		<menu ref="reports" />
+		
 	</body>
+	
 </project>
