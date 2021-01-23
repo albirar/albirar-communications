@@ -7,12 +7,12 @@
 	<parent>
 		<groupId>cat.albirar.lib</groupId>
 		<artifactId>albirar-communications-providers</artifactId>
-		<version>2.0.0-SNAPSHOT</version>
+		<version>1.1.0-SNAPSHOT</version>
 	</parent>
 	
 	<artifactId>albirar-communications-provider-clickandsend</artifactId>
 	<packaging>jar</packaging>
-	<name>albirar-communications-provider-clickandsend</name>
+	<name>Albirar Communications Library - SMS Provider for ClickAndSend service</name>
 	<description>A SMS provider for ClickAndSend</description>
 
 	<dependencies>
@@ -34,6 +34,20 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cat.albirar.lib</groupId>
+			<artifactId>albirar-communications-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cat.albirar.lib</groupId>
+			<artifactId>albirar-template-engine</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cat.albirar.lib</groupId>
+			<artifactId>albirar-communications-core</artifactId>
+			<classifier>tests</classifier>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

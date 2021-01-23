@@ -1,10 +1,10 @@
-# Description
+# Albirar Communications
 
 *Albirar communications* is a library to get some mid-level functionalities around *eMail* and *SMS* communications channels.
 
 Enable email and SMS communications with third party, like users. The library use external services to communicate to, like gmail or Click&Send.
 
-Is implemented with [SpringFramework library](https://spring.io/projects/spring-framework "SpringFramework library") and [Spring Boot library](https://spring.io/projects/spring-boot "Spring Boot library")and usable only with this environment.
+Is implemented with [SpringFramework library](https://spring.io/projects/spring-framework "SpringFramework library") and [Spring Boot library](https://spring.io/projects/spring-boot "Spring Boot library") and usable only with this environment.
 
 The messages are send in an asynchronous way, decoupling application from network latency and involved services.
 
@@ -23,7 +23,7 @@ This library is divided in two parts:
 
 ## Core
 
-The `Core` part include the main service: `cat.albirar.communications.services.ICommunicationService` that is the interface to all the system.
+The `Core` part include some interface contract for operations and the main service: `cat.albirar.communications.services.ICommunicationService` that is the interface to all the system.
 
 Also contains the classes to use a 
 

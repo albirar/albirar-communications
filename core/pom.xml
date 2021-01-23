@@ -7,21 +7,20 @@
 	<parent>
 		<groupId>cat.albirar.lib</groupId>
 		<artifactId>albirar-communications</artifactId>
-		<version>2.0.0-SNAPSHOT</version>
+		<version>1.1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>albirar-communications-core</artifactId>
 	<packaging>jar</packaging>
-	<name>albirar-communications-core</name>
+	<name>Albirar Communications Library - Core</name>
 	<description>Some services to abstract action of communicate with email or sms</description>
 
 
 	<dependencies>
 		<!-- TEMPLATES -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>cat.albirar.lib</groupId>
 			<artifactId>albirar-template-engine</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
@@ -72,7 +71,6 @@
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>rabbitmq</artifactId>
-			<version>${rabbitmq-container.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -86,10 +84,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
