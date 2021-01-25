@@ -16,6 +16,7 @@
 	<packaging>pom</packaging>
 	<name>Albirar Communications Library</name>
 	<description>Root pom for all communications library components</description>
+	<url>https://albirar.github.io/albirar-communications</url>
 
 	<properties>
 		<albirar-template.version>2.0.1</albirar-template.version>
@@ -27,7 +28,7 @@
 		<tag>HEAD</tag>
 		<url>https://github.com/albirar/albirar-communications</url>
 	</scm>
-	
+
 	<ciManagement>
 		<system>TravisCI</system>
 		<url>https://travis-ci.com/github/albirar/albirar-communications</url>
@@ -44,8 +45,8 @@
 			<url>scm:git:ssh://git@github.com/albirar/albirar-communications.git</url>
 		</site>
 	</distributionManagement>
-	
-	
+
+
 	<developers>
 		<developer>
 			<id>1</id>
@@ -57,7 +58,7 @@
 	<licenses>
 		<license>
 			<name>GNU General Public License v3.0 or later</name>
-			<url>http://www.spdx.org/licenses/GPL-3.0+</url>
+			<url>https://www.gnu.org/licenses/gpl-3.0.html</url>
 		</license>
 	</licenses>
 
@@ -65,7 +66,7 @@
 		<module>core</module>
 		<module>providers</module>
 	</modules>
-	
+
 	<reporting>
 		<plugins>
 			<plugin>
@@ -111,21 +112,20 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>2.12.1</version>
 				<configuration>
-					<groups>
-						<group>
-							<title>Core</title>
-							<packages>cat.albirar.communications.configuration:cat.albirar.communications.processors:cat.albirar.communications.processors.impl:cat.albirar.communications.providers:cat.albirar.communications.providers.email:cat.albirar.communications.providers.sms:cat.albirar.communications.services:cat.albirar.communications.services.impl:cat.albirar.communications.status:cat.albirar.communications.channels.models:cat.albirar.communications.configuration.models:cat.albirar.communications.messages.models:cat.albirar.communications.status.models</packages>
-						</group>
-						<group>
-							<title>JavaMail - Email provider</title>
-							<packages>cat.albirar.communications.providers.email.javamail.*</packages>
-						</group>
-						<group>
-							<title>Click&amp;Send - SMS provider</title>
-							<packages>cat.albirar.communications.providers.sms.clickandsend.*</packages>
-						</group>
-					</groups>
+					<githubAPIScheme>https</githubAPIScheme>
+					<githubAPIPort>443</githubAPIPort>
+					<aggregated>true</aggregated>
+					<includeOpenIssues>true</includeOpenIssues>
 				</configuration>
 			</plugin>
 			<plugin>
