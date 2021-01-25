@@ -7,7 +7,6 @@ Can be used with spring-framework or spring-boot.
 ![Maven 3.6](https://img.shields.io/badge/Maven-3.6-informational)
 ![Spring boot 2.3.x](https://img.shields.io/badge/Spring%20Boot-2.3-informational)
 ![Spring Framework 5.2.x](https://img.shields.io/badge/Spring%20Framework-5.2-informational)
-![Thymeleaf 3.0.x](https://img.shields.io/badge/Thymeleaf-3.0-informational)
 
 # Status
 See [Status](https://albirar.github.io/albirar-communications/status.html "Status")

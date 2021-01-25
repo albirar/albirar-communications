@@ -9,9 +9,10 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - mvn test -B
+## root-level property is a substitution logback property setted on logback-test.xml files
+  - mvn test -B -Droot-level=ERROR
 after_script:
-  - mvn site -B
+  - mvn site -B -Droot-level=ERROR
   - ./cc-test-reporter format-coverage ./target/site/cobertura/coverage.xml -t cobertura
   - ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

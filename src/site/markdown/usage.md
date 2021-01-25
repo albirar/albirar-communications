@@ -1,4 +1,4 @@
-## Usage
+# Usage
 
 Include in your maven project, the dependencies for providers, the core library is a transitive dependency.
 

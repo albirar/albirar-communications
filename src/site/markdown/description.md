@@ -25,7 +25,7 @@ This library is divided in two parts:
 
 The `Core` part include the main service: `cat.albirar.communications.services.ICommunicationService` that is the interface to all the system.
 
-Also contains the classes to use a 
+Also contains the models for use on providers.
 
 ## Providers
 
