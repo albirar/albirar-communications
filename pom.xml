@@ -46,6 +46,27 @@
 		<module>core</module>
 		<module>providers</module>
 	</modules>
+	
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>cobertura-integration-test</report>
+						</reports>
+						<configuration>
+							<format>html</format>
+							<format>xml</format>
+							<aggregate>true</aggregate>
+						</configuration>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
 
 	<dependencyManagement>
 		<dependencies>
@@ -91,6 +112,77 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<target>
+                		<taskdef resource="tasks.properties" classpathref="maven.plugin.classpath" />
+
+						<!-- Merge contents of modules data files and create a global data 
+							file with all -->
+						<cobertura-merge
+							datafile="target/cobertura/cobertura.ser">
+							<fileset dir=".">
+								<include name="core/target/cobertura/cobertura.ser" />
+								<include
+									name="providers/clickandsend/target/cobertura/cobertura.ser" />
+								<include
+									name="providers/javamail/target/cobertura/cobertura.ser" />
+							</fileset>
+						</cobertura-merge>
+
+						<!-- Create a XML report with the resulting merged data file -->
+						<cobertura-report format="xml"
+							destdir="target/cobertura/"
+							datafile="target/cobertura/cobertura.ser">
+							<fileset dir="core/src/main">
+								<include name="**/*.java" />
+							</fileset>
+							<fileset dir="providers/clickandsend/src/main">
+								<include name="**/*.java" />
+							</fileset>
+							<fileset dir="providers/javamail/src/main">
+								<include name="**/*.java" />
+							</fileset>
+						</cobertura-report>
+					</target>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>net.sourceforge.cobertura</groupId>
+						<artifactId>cobertura</artifactId>
+						<version>2.1.1</version>
+					</dependency>
+					<dependency>
+						<groupId>org.ow2.asm</groupId>
+						<artifactId>asm-all</artifactId>
+						<version>5.0.1</version>
+					</dependency>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+						<version>1.7.5</version>
+					</dependency>
+					<dependency>
+						<groupId>ch.qos.logback</groupId>
+						<artifactId>logback-core</artifactId>
+						<version>1.0.13</version>
+					</dependency>
+					<dependency>
+						<groupId>ch.qos.logback</groupId>
+						<artifactId>logback-classic</artifactId>
+						<version>1.0.13</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/oro/oro -->
+					<dependency>
+						<groupId>oro</groupId>
+						<artifactId>oro</artifactId>
+						<version>2.0.8</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
