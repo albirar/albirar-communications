@@ -1,7 +1,7 @@
 # Requirements
 
-This library depends on spring framework MVC and thymeleaf.
-Can be used with spring-framework or spring-boot.
+This library depends on spring framework.
+Can be used with spring-framework alone or on a spring-boot application.
 
 ![Jdk 1.8](https://img.shields.io/badge/Jdk-1.8-informational)
 ![Maven 3.6](https://img.shields.io/badge/Maven-3.6-informational)
