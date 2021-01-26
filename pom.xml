@@ -104,19 +104,84 @@
 		</dependencies>
 	</dependencyManagement>
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>deploy-site-no-test-site</id>
+							<phase>site-deploy</phase>
+							<configuration>
+								<generateProjectInfo>false</generateProjectInfo>
+								<generateReports>false</generateReports>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>deploy-site-no-test</id>
+							<phase>site-deploy-reports</phase>
+							<configuration>
+								<skip>true</skip>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>deploy-site-no-test-javadoc</id>
+							<phase>site-deploy</phase>
+							<configuration>
+								<skip>true</skip>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>deploy-site-no-test-it</id>
+							<phase>site-deploy</phase>
+							<configuration>
+								<skipITs>true</skipITs>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>deploy-site-no-test-ut</id>
+							<phase>site-deploy</phase>
+							<configuration>
+								<skip>true</skip>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-publish-plugin</artifactId>
+					<configuration>
+						<skipDeployement>true</skipDeployement>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-changes-plugin</artifactId>
@@ -126,7 +191,9 @@
 					<githubAPIPort>443</githubAPIPort>
 					<aggregated>true</aggregated>
 					<includeOpenIssues>true</includeOpenIssues>
+					<onlyCurrentVersion>true</onlyCurrentVersion>
 				</configuration>
+				<inherited>false</inherited>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -144,6 +211,14 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<configuration>
+					<skipDeployement>false</skipDeployement>
+				</configuration>
+				<inherited>false</inherited>
 			</plugin>
 		</plugins>
 	</build>

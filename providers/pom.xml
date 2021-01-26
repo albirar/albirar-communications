@@ -36,4 +36,16 @@
 		<module>javamail</module>
 		<module>clickandsend</module>
 	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<configuration>
+					<skipDeployement>true</skipDeployement>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

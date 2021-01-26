@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 http://maven.apache.org/xsd/decoration-1.8.0.xsd"
 	name="${name}">
-	<publishDate position="left" format="dd-MM-yyy" />
+	<publishDate position="left" format="dd-MM-yyy HH:mm" />
 	<version position="left" />
 	
 	<bannerLeft>
@@ -39,6 +39,8 @@
 			<item name="Providers" href="providers.html"  />
 		</menu>
 		<menu name="Info and Reports" title="Info and Reports">
+			<item name="Requirements" href="requirements.html"  />
+			<item name="Status" href="status.html" />
 			<item name="Info" href="project-info.html" />
 			<item name="Reports" href="project-reports.html" />
 			<item name="JavaDocs" href="apidocs" />
@@ -59,10 +61,15 @@
 				img="images/Octocat-32px.png">
 				<description>${issueManagement.system} Issues</description>
 			</item>
-			<item name="Covertura" href="cobertura/index.html"
-				title="Covertura"
+			<item name="Coverage" href="cobertura"
+				title="Coverage"
 				img="images/bar_char.png">
 				<description>Code coverage</description>
+			</item>
+			<item name="Code climate reports" href="https://codeclimate.com/github/albirar/albirar-communications"
+				title="Code climate reports"
+				img="images/code_climate_logo.png">
+				<description>Code climate reports</description>
 			</item>
 		</menu>
 		<menu name="Releases" title="Releases">
