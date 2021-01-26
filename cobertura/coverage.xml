@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.9821428571428571" branch-rate="1.0" lines-covered="330" lines-valid="336" branches-covered="32" branches-valid="32" complexity="0.0" version="2.1.1" timestamp="1611651815973">
+<coverage line-rate="0.9821428571428571" branch-rate="1.0" lines-covered="330" lines-valid="336" branches-covered="32" branches-valid="32" complexity="1.78" version="2.1.1" timestamp="1611651440726">
 	<sources>
+		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/core/src/main/java</source>
 		<source>--source</source>
-		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/src/main/java</source>
+		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/providers/clickandsend/src/main/java</source>
+		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/providers/javamail/src/main/java</source>
 	</sources>
 	<packages>
-		<package name="cat.albirar.communications.configuration" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+		<package name="cat.albirar.communications.configuration" line-rate="1.0" branch-rate="1.0" complexity="1.0">
 			<classes>
-				<class name="cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration" filename="cat/albirar/communications/configuration/AlbirarCommunicationsConfiguration.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration" filename="cat/albirar/communications/configuration/AlbirarCommunicationsConfiguration.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -227,9 +229,9 @@
 				</class>
 			</classes>
 		</package>
-		<package name="cat.albirar.communications.processors.impl" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+		<package name="cat.albirar.communications.processors.impl" line-rate="1.0" branch-rate="1.0" complexity="2.0">
 			<classes>
-				<class name="cat.albirar.communications.processors.impl.AbstractReportProcessor" filename="cat/albirar/communications/processors/impl/AbstractReportProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.processors.impl.AbstractReportProcessor" filename="cat/albirar/communications/processors/impl/AbstractReportProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="1.5">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -293,7 +295,7 @@
 						<line number="89" hits="15" branch="false"/>
 					</lines>
 				</class>
-				<class name="cat.albirar.communications.processors.impl.AbstractSenderProcessor" filename="cat/albirar/communications/processors/impl/AbstractSenderProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.processors.impl.AbstractSenderProcessor" filename="cat/albirar/communications/processors/impl/AbstractSenderProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="2.4">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -405,7 +407,7 @@
 						<line number="141" hits="16" branch="false"/>
 					</lines>
 				</class>
-				<class name="cat.albirar.communications.processors.impl.EmailReportProcessor" filename="cat/albirar/communications/processors/impl/EmailReportProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.processors.impl.EmailReportProcessor" filename="cat/albirar/communications/processors/impl/EmailReportProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
 					<methods>
 						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -425,7 +427,7 @@
 						<line number="39" hits="7" branch="false"/>
 					</lines>
 				</class>
-				<class name="cat.albirar.communications.processors.impl.EmailSenderProcessor" filename="cat/albirar/communications/processors/impl/EmailSenderProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.processors.impl.EmailSenderProcessor" filename="cat/albirar/communications/processors/impl/EmailSenderProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="3.0">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -507,7 +509,7 @@
 						<line number="91" hits="9" branch="false"/>
 					</lines>
 				</class>
-				<class name="cat.albirar.communications.processors.impl.SmsReportProcessor" filename="cat/albirar/communications/processors/impl/SmsReportProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.processors.impl.SmsReportProcessor" filename="cat/albirar/communications/processors/impl/SmsReportProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
 					<methods>
 						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -527,7 +529,7 @@
 						<line number="39" hits="5" branch="false"/>
 					</lines>
 				</class>
-				<class name="cat.albirar.communications.processors.impl.SmsSenderProcessor" filename="cat/albirar/communications/processors/impl/SmsSenderProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.processors.impl.SmsSenderProcessor" filename="cat/albirar/communications/processors/impl/SmsSenderProcessor.java" line-rate="1.0" branch-rate="1.0" complexity="3.0">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -611,9 +613,9 @@
 				</class>
 			</classes>
 		</package>
-		<package name="cat.albirar.communications.providers" line-rate="0.5" branch-rate="1.0" complexity="0.0">
+		<package name="cat.albirar.communications.providers" line-rate="0.5" branch-rate="1.0" complexity="1.0">
 			<classes>
-				<class name="cat.albirar.communications.providers.ProviderException" filename="cat/albirar/communications/providers/ProviderException.java" line-rate="0.5" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.providers.ProviderException" filename="cat/albirar/communications/providers/ProviderException.java" line-rate="0.5" branch-rate="1.0" complexity="1.0">
 					<methods>
 						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -743,9 +745,9 @@
 				</class>
 			</classes>
 		</package>
-		<package name="cat.albirar.communications.providers.email.javamail.impl" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+		<package name="cat.albirar.communications.providers.email.javamail.impl" line-rate="1.0" branch-rate="1.0" complexity="2.0">
 			<classes>
-				<class name="cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider" filename="cat/albirar/communications/providers/email/javamail/impl/JavaMailSenderEmailProvider.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider" filename="cat/albirar/communications/providers/email/javamail/impl/JavaMailSenderEmailProvider.java" line-rate="1.0" branch-rate="1.0" complexity="2.0">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -801,9 +803,9 @@
 				</class>
 			</classes>
 		</package>
-		<package name="cat.albirar.communications.providers.sms.clickandsend" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+		<package name="cat.albirar.communications.providers.sms.clickandsend" line-rate="1.0" branch-rate="1.0" complexity="4.0">
 			<classes>
-				<class name="cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider" filename="cat/albirar/communications/providers/sms/clickandsend/ClickAndSendSmsSenderProvider.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider" filename="cat/albirar/communications/providers/sms/clickandsend/ClickAndSendSmsSenderProvider.java" line-rate="1.0" branch-rate="1.0" complexity="4.0">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -923,7 +925,7 @@
 						<line number="116" hits="1" branch="false"/>
 					</lines>
 				</class>
-				<class name="cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider$1" filename="cat/albirar/communications/providers/sms/clickandsend/ClickAndSendSmsSenderProvider.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider$1" filename="cat/albirar/communications/providers/sms/clickandsend/ClickAndSendSmsSenderProvider.java" line-rate="1.0" branch-rate="1.0" complexity="4.0">
 					<methods>
 						<method name="&lt;init&gt;" signature="(Lcat/albirar/communications/providers/sms/clickandsend/ClickAndSendSmsSenderProvider;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -937,9 +939,9 @@
 				</class>
 			</classes>
 		</package>
-		<package name="cat.albirar.communications.services" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+		<package name="cat.albirar.communications.services" line-rate="1.0" branch-rate="1.0" complexity="1.0">
 			<classes>
-				<class name="cat.albirar.communications.services.ServiceException" filename="cat/albirar/communications/services/ServiceException.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.services.ServiceException" filename="cat/albirar/communications/services/ServiceException.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
 					<methods>
 						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/Throwable;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -955,9 +957,9 @@
 				</class>
 			</classes>
 		</package>
-		<package name="cat.albirar.communications.services.impl" line-rate="0.9365079365079365" branch-rate="1.0" complexity="0.0">
+		<package name="cat.albirar.communications.services.impl" line-rate="0.9365079365079365" branch-rate="1.0" complexity="2.8">
 			<classes>
-				<class name="cat.albirar.communications.services.impl.CommunicationServiceImpl" filename="cat/albirar/communications/services/impl/CommunicationServiceImpl.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.services.impl.CommunicationServiceImpl" filename="cat/albirar/communications/services/impl/CommunicationServiceImpl.java" line-rate="1.0" branch-rate="1.0" complexity="2.5">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
@@ -1049,7 +1051,7 @@
 						<line number="127" hits="27" branch="false"/>
 					</lines>
 				</class>
-				<class name="cat.albirar.communications.services.impl.ReportRegister" filename="cat/albirar/communications/services/impl/ReportRegister.java" line-rate="0.8888888888888888" branch-rate="1.0" complexity="0.0">
+				<class name="cat.albirar.communications.services.impl.ReportRegister" filename="cat/albirar/communications/services/impl/ReportRegister.java" line-rate="0.8888888888888888" branch-rate="1.0" complexity="3.0">
 					<methods>
 						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
