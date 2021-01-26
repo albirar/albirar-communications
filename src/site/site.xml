@@ -36,6 +36,7 @@
 		<menu name="Documentation" title="Documentation">
 			<item name="Description" href="description.html" />
 			<item name="Usage" href="usage.html" />
+			<item name="Configuration" href="configuration.html"  />
 			<item name="Providers" href="providers.html"  />
 		</menu>
 		<menu name="Info and Reports" title="Info and Reports">
