@@ -38,10 +38,10 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Info and Reports <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li><a href="requirements.html" title="Requirements">Requirements</a></li>
+            <li><a href="status.html" title="Status">Status</a></li>
             <li><a href="project-info.html" title="Info">Info</a></li>
             <li><a href="project-reports.html" title="Reports">Reports</a></li>
             <li><a href="apidocs" title="JavaDocs">JavaDocs</a></li>
-            <li><a href="status.html" title="Status">Status</a></li>
         </ul>
       </li>
       <li class="dropdown">
@@ -90,93 +90,11 @@
 <p>Enable email and SMS communications with third party, like users. The library use external services to communicate to, like gmail or Click&amp;Send.</p>
 <p>Is implemented with <a class="externalLink" href="https://spring.io/projects/spring-framework" title="SpringFramework library">SpringFramework library</a> and <a class="externalLink" href="https://spring.io/projects/spring-boot" title="Spring Boot library">Spring Boot library</a> and usable only with this environment.</p>
 <p>The messages are send in an asynchronous way, decoupling application from network latency and involved services.</p>
+<p>Use a <a class="externalLink" href="https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.8.4">RabbitMQ 3.8.4</a> service to implement asynchronous operation.</p>
 <p>Messages to only one receipt is implemented today. Batch messages processing and sending are not implemented yet.</p>
 <p>The access to external service for email or SMS is implemented through a kind of <i>agents</i> named <b>providers</b>. Providers are responsible of connecting, authenticate (if needed), send the message to the service end-point and retrieve the resulting status code.</p>
 <p>Two base providers are implemented now: one for email and another one for sms.</p>
-<h1>Library structure</h1>
-<p>This library is divided in two parts:</p>
-<ol style="list-style-type: decimal">
-
-<li>Core</li>
-<li>Providers</li>
-</ol><section>
-<h2><a name="Core"></a>Core</h2>
-<p>The <code>Core</code> part include some interface contract for operations and the main service: <code>cat.albirar.communications.services.ICommunicationService</code> that is the interface to all the system.</p>
-<p>Also contains the classes to use a</p></section><section>
-<h2><a name="Providers"></a>Providers</h2>
-<p>The <code>Providers</code> are a kind of agents for communication via <code>email</code> or <code>SMS</code>. There are two implemented providers:</p>
-<ul>
-
-<li><code>email</code> through <a class="externalLink" href="https://javaee.github.io/javamail/" title="JavaMail API">JavaMail API</a> with the <code>cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider</code> implementation class</li>
-<li><code>SMS</code> through <a class="externalLink" href="https://clicksend.com/" title="Click & Send SMS service provider">Click &amp; Send SMS service provider</a> with <code>cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider</code> implementation class</li>
-</ul>
-<p>You can use these or any other that you want.</p>
-<h1>Implementing providers</h1>
-<p>Any provider implementation class should implement any of the two following interfaces:</p>
-<ul>
-
-<li><code>cat.albirar.communications.providers.email.IEmailProvider</code> for email provider</li>
-<li><code>cat.albirar.communications.providers.sms.ISmsSenderProvider</code> for SMS provider</li>
-</ul>
-<p>The communications should to be made asynchronously. Any problem should to be notified throwing a <code>cat.albirar.communications.providers.ProviderException</code>.</p>
-<h1>Requirements</h1>
-<ul>
-
-<li>Java 1.8 or greater</li>
-<li><a class="externalLink" href="https://docs.spring.io/spring-framework/docs/5.2.x/spring-framework-reference/" title="SpringFramework *5.2.x*">SpringFramework <i>5.2.x</i></a></li>
-<li><a class="externalLink" href="https://docs.spring.io/spring-boot/docs/2.3.x/reference/html/index.html" title="Spring Boot *2.3.x*">Spring Boot <i>2.3.x</i></a></li>
-<li><a class="externalLink" href="https://maven.apache.org/" title="Maven 3.6">Maven 3.6</a> or any other tool that uses maven repository and dependency resolution</li>
-</ul>
-<h1>Usage</h1>
-<p>Include in your maven project, the dependencies for providers, the core library is a transitive dependency.</p>
-<p>If use the default providers:</p>
-
-<div class="source">
-<div class="source"><pre class="prettyprint">&lt;dependency&gt;
-   &lt;groupId&gt;cat.albirar.lib&lt;/groupId&gt;
-   &lt;artifactId&gt;albirar-communications-provider-javamail&lt;/artifactId&gt;
-   &lt;version&gt;2.0.0&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-   &lt;groupId&gt;cat.albirar.lib&lt;/groupId&gt;
-   &lt;artifactId&gt;albirar-communications-provider-clickandsend&lt;/artifactId&gt;
-   &lt;version&gt;2.0.0&lt;/version&gt;
-&lt;/dependency&gt;
-</pre></div></div>
-
-<p>Should to add the discovery of components for providers. Second, configure some aspects of providers, like host and port, credentials, etc.</p>
-<p>Add the component dependency for the core service: <code>cat.albirar.communications.services.ICommunicationService</code> on your classes.</p>
-<p>Use the service:</p>
-
-<div class="source">
-<div class="source"><pre class="prettyprint">@Autowired
-private ICommunicationService communicationService;
-
-   // ...
-
-   String idMsg = communicationService.pushMessage(message);
-   // ...
-   oMsg = communicationService.popStatusMessage(idMsg);
-   if(oMsg.isPresent()) {
-       if(oMsg.get().getStatus() == EStatusMessage.SEND) {
-           // ...
-       }
-       if(oMsg.get().getStatus() == EStatusMessage.ERROR) {
-           // ...
-       }
-   }
-   // ...
-</pre></div></div>
-
-<h1>Source code</h1>
-<p>The source code is available at github:</p>
-<p><a class="externalLink" href="https://github.com/albirar/albirar-communications.git">https://github.com/albirar/albirar-communications.git</a></p>
-<p>The <i>master</i> branch holds the current production release.</p>
-<p>The <i>develop</i> branch holds the last SNASHOT developing code.</p>
-<h1>License</h1>
-<p>This library is distributed under the GNU GENERAL PUBLIC LICENSE Version 3 or later (GPLv3)</p>
-<p>Full text of the license is available at: <a class="externalLink" href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" title="GPLv3">GPLv3</a></p>
-<p>Short summary is available at: <a class="externalLink" href="https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3)" title="TL;DR;Legal LGPL-3">TL;DR;Legal LGPL-3</a></p></section>
+<p>See <a href="description.html">Documentation</a></p>
         </main>
     </div>
     <hr/>
