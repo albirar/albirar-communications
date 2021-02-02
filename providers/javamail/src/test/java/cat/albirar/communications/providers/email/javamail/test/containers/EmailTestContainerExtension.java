@@ -16,7 +16,7 @@
  *
  * Copyright (C) 2020 Octavi Fornés
  */
-package cat.albirar.communications.providers.email.javamail.test;
+package cat.albirar.communications.providers.email.javamail.test.containers;
 
 import java.util.ArrayList;
 import java.util.List;

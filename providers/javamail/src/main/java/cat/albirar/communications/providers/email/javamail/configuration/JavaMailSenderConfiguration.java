@@ -26,6 +26,8 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +36,7 @@ import org.springframework.core.env.EnumerablePropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
+import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.configuration.IPropertiesComm;
 import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider;
 
@@ -43,6 +46,7 @@ import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEm
  * @since 2.0.0
  */
 @Configuration
+@ImportAutoConfiguration(classes = AlbirarCommunicationsConfiguration.class)
 @ComponentScan(basePackageClasses = JavaMailSenderEmailProvider.class)
 public class JavaMailSenderConfiguration {
     private static final Logger LOGGER = LoggerFactory.getLogger(JavaMailSenderConfiguration.class);
@@ -96,6 +100,7 @@ public class JavaMailSenderConfiguration {
     public static final String VALUE_JAVAMAIL_PASSWORD = "#{systemProperties['" + JAVAMAIL_PASSWORD_PROPERTY_NAME + "']}";
 
     @Bean
+    @ConditionalOnMissingBean
     public JavaMailSender javaMailSender(ConfigurableEnvironment env) {
         JavaMailSenderImpl jm;
         List<EnumerablePropertySource<?>> propSrc;

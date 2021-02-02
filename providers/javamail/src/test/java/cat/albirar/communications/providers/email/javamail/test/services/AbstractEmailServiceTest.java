@@ -39,7 +39,7 @@ import cat.albirar.communications.channels.models.LocalizableAttributesCommunica
 import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.messages.models.MessageBean;
 import cat.albirar.communications.providers.email.javamail.configuration.JavaMailSenderConfiguration;
-import cat.albirar.communications.providers.email.javamail.test.EmailTestContainerExtension;
+import cat.albirar.communications.providers.email.javamail.test.containers.EmailTestContainerExtension;
 import cat.albirar.communications.services.ICommunicationService;
 import cat.albirar.communications.test.AbstractCommunicationsTest;
 import cat.albirar.communications.test.RabbitMqContainerExtension;

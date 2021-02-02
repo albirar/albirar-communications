@@ -16,19 +16,18 @@
  *
  * Copyright (C) 2021 Octavi Fornés
  */
-package cat.albirar.communications.providers.sms.clickandsend.test;
+package cat.albirar.communications.providers.sms.clickandsend.test.provider;
+
+import static org.mockito.Mockito.mock;
 
 import java.util.Locale;
 
-import org.mockito.Mockito;
-import org.springframework.amqp.core.NamingStrategy;
-import org.springframework.amqp.core.UUIDNamingStrategy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
-import org.springframework.web.reactive.function.client.WebClient;
 
+import ClickSend.Api.SmsApi;
 import cat.albirar.communications.channels.models.ContactBean;
 import cat.albirar.communications.channels.models.ECommunicationChannelType;
 import cat.albirar.communications.channels.models.LocalizableAttributesCommunicationChannelBean;
@@ -73,16 +72,10 @@ public class ClickAndSendTestConfiguration {
                 .build()
                 ;
     }
-    
+        
     @Bean
     @Primary
-    public NamingStrategy namingStrategy() {
-        return new UUIDNamingStrategy();
-    }
-    
-    @Bean
-    @Primary
-    public WebClient webClient() {
-        return Mockito.mock(WebClient.class);
+    public SmsApi apiSmsTest() {
+        return mock(SmsApi.class);
     }
 }

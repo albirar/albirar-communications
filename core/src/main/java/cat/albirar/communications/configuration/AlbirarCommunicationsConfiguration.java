@@ -42,6 +42,7 @@ import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -90,22 +91,26 @@ public class AlbirarCommunicationsConfiguration {
     // Basic configuration...
 
     @Bean
+    @ConditionalOnMissingBean
     public LocalValidatorFactoryBean validator() {
         return new LocalValidatorFactoryBean();
     }
     
     @Bean
+    @ConditionalOnMissingBean
     public MethodValidationPostProcessor validationPostProcessor() {
         return new MethodValidationPostProcessor();
     }
     
     // AMQP configuration
     @Bean
+    @ConditionalOnMissingBean
     public NamingStrategy namingStrategy() {
         return new UUIDNamingStrategy();
     }
     
     @Bean
+    @ConditionalOnMissingBean
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory cnxFc;
 
@@ -126,6 +131,7 @@ public class AlbirarCommunicationsConfiguration {
     }
     
     @Bean
+    @ConditionalOnMissingBean
     public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory) {
         RabbitAdmin radm;
         
@@ -134,6 +140,7 @@ public class AlbirarCommunicationsConfiguration {
     }
     
     @Bean
+    @ConditionalOnMissingBean
     public MessageConverter messageConverter() {
         Jackson2JsonMessageConverter msgCnv;
         ObjectMapper mapper;
@@ -146,6 +153,7 @@ public class AlbirarCommunicationsConfiguration {
     }
     
     @Bean
+    @ConditionalOnMissingBean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory, MessageConverter messageConverter) {
         RabbitTemplate template;
         
@@ -156,25 +164,30 @@ public class AlbirarCommunicationsConfiguration {
     }
 
     @Bean
+    @ConditionalOnMissingBean(name = "emailSendQueue")
     public Queue emailSendQueue() {
         return new Queue(emailSendQueueName);
     }
     
     @Bean
+    @ConditionalOnMissingBean(name = "smsSendQueue")
     public Queue smsSendQueue() {
         return new Queue(smsSendQueueName);
     }
 
     @Bean
+    @ConditionalOnMissingBean(name = "emailReportQueue")
     public Queue emailReportQueue() {
         return new Queue(emailReportQueueName);
     }
     
     @Bean
+    @ConditionalOnMissingBean(name = "smsReportQueue")
     public Queue smsReportQueue() {
         return new Queue(smsReportQueueName);
     }
     @Bean
+    @ConditionalOnMissingBean(name = "exchange")
     public TopicExchange exchange() {
         return new TopicExchange(exchangeName);
     }

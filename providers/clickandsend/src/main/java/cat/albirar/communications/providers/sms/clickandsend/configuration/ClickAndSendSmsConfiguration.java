@@ -18,15 +18,16 @@
  */
 package cat.albirar.communications.providers.sms.clickandsend.configuration;
 
-import java.util.Base64;
-
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
-import org.springframework.web.reactive.function.client.WebClient;
 
-import cat.albirar.communications.providers.sms.clickandsend.ClickAndSendSmsSenderProvider;
+import ClickSend.ApiClient;
+import ClickSend.Api.SmsApi;
+import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.providers.sms.clickandsend.impl.ClickAndSendSmsSenderProvider;
 import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSendPropertiesBean;
 
 /**
@@ -35,6 +36,7 @@ import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSend
  * @since 1.0.0
  */
 @Configuration
+@ImportAutoConfiguration(classes = AlbirarCommunicationsConfiguration.class)
 @ComponentScan(basePackageClasses = ClickAndSendSmsSenderProvider.class)
 public class ClickAndSendSmsConfiguration {
 
@@ -44,17 +46,24 @@ public class ClickAndSendSmsConfiguration {
      * @return The configured webclient
      */
     @Bean
-    public WebClient webClient(ClickAndSendPropertiesBean props) {
+    @ConditionalOnMissingBean
+    public ApiClient apiClient(ClickAndSendPropertiesBean props) {
 
-        String stb;
+        ApiClient api;
+        api = new ApiClient();
+        api.setUsername(props.getUsername());
+        api.setPassword(props.getKey());
         
-        stb = new StringBuilder("Basic ").append(props.getUsername())
-                .append(":").append(props.getKey())
-                .toString()
-                ;
-        stb = Base64.getEncoder().encodeToString(stb.getBytes());
-        return WebClient.builder().baseUrl(ClickAndSendPropertiesBean.URL_BASE)
-                .defaultHeader(HttpHeaders.AUTHORIZATION, stb)
-                .build();
+        return api;
+    }
+    /**
+     * Specific client to access SMS operation on rest API.
+     * @param apiClient The generic api client
+     * @return The specialized api client for SMS calls.
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public SmsApi apiSms(ApiClient apiClient) {
+        return new SmsApi(apiClient);
     }
 }
