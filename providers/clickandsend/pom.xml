@@ -9,15 +9,25 @@
 		<artifactId>albirar-communications-providers</artifactId>
 		<version>1.1.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<properties>
 		<cs.version>1.0.0</cs.version>
+		<cs-site-url>${providers-site-url}/clickandsend</cs-site-url>
+		<cs-dist-site-url>${providers-dist-site-url}/clickandsend</cs-dist-site-url>
 	</properties>
 
 	<artifactId>albirar-communications-provider-clickandsend</artifactId>
 	<packaging>jar</packaging>
 	<name>Albirar Communications Library - SMS Provider for ClickAndSend service</name>
 	<description>A SMS provider for ClickAndSend</description>
+	<url>${cs-site-url}/</url>
+	<distributionManagement>
+		<site>
+			<id>site_github_cs</id>
+			<url>${cs-dist-site-url}/</url>
+		</site>
+	</distributionManagement>
+
 
 	<dependencies>
 		<!-- Rest client -->
@@ -59,6 +69,10 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-remote-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok-maven-plugin</artifactId>
 			</plugin>
@@ -83,6 +97,13 @@
 				<artifactId>maven-scm-publish-plugin</artifactId>
 				<configuration>
 					<skipDeployement>true</skipDeployement>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<topSiteURL>${parent.distributionManagement.site.url}/providers/clickandsend</topSiteURL>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -20,7 +20,6 @@ package cat.albirar.communications.providers.sms.clickandsend.models;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -39,7 +38,7 @@ import lombok.Setter;
 @Component
 @ConfigurationProperties(prefix = ClickAndSendPropertiesBean.CS_ROOT_PROPERTIES)
 public class ClickAndSendPropertiesBean implements Serializable {
-    private static final long serialVersionUID = -7667362344492003232L;
+    private static final long serialVersionUID = -4348696169294481077L;
     
     /** Root for all Click&Send configuration properties. */
     public static final String CS_ROOT_PROPERTIES = IPropertiesComm.ROOT_COMMUNICATIONS_PROPERTIES + ".sms.cs.api";
@@ -47,16 +46,6 @@ public class ClickAndSendPropertiesBean implements Serializable {
     public static final String CS_PROP_USERNAME = CS_ROOT_PROPERTIES + ".username";
     /** Property name for API KEY for Click&Send authorization. */
     public static final String CS_PROP_KEY = CS_ROOT_PROPERTIES + ".key";
-    /** Property name for establish the timeout in miliseconds. */
-    public static final String CS_PROP_TO = CS_ROOT_PROPERTIES + ".timeout";
-    
-    /** Base URL for REST communications with Click&Send service. */
-    public static final String URL_BASE = "https://rest.clicksend.com/v3";
-        
-    /** PATH for REST command for send SMS. */
-    public static final String URI_SEND_SMS = "/sms/send";
-    /** URL for REST command for send SMS. */
-    public static final String URL_SMS = URL_BASE + URI_SEND_SMS;
     /**
      * The API username for authorization.
      * @param username The API username, should to be not blank
@@ -73,8 +62,4 @@ public class ClickAndSendPropertiesBean implements Serializable {
     @NotBlank
     @Setter(onParam_ = { @NotBlank })
     private String key = "TEST_KEY";
-    
-    @Min(1)
-    @Setter(onParam_ = { @Min(1) })
-    private long timeout = 10;
 }

@@ -16,4 +16,23 @@ The access to external service for email or SMS is implemented through a kind of
 
 Two base providers are implemented now: one for email and another one for sms.
 
-See [Documentation](description.html)
+# Library structure
+
+This library is divided in two parts:
+
+1. Core
+2. Providers
+
+## Core
+
+The `Core` part include the main service: `cat.albirar.communications.services.ICommunicationService` that is the interface to all the system.
+
+Also contains the models for use on providers.
+
+See [Core](core/index.html)
+
+## Providers
+
+The `Providers` are a kind of agents for communication via `email` or `SMS`. 
+
+See [Providers](providers/index.html)

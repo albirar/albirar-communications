@@ -37,7 +37,7 @@ import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSend
  */
 @Configuration
 @ImportAutoConfiguration(classes = AlbirarCommunicationsConfiguration.class)
-@ComponentScan(basePackageClasses = ClickAndSendSmsSenderProvider.class)
+@ComponentScan(basePackageClasses = {ClickAndSendSmsSenderProvider.class, ClickAndSendPropertiesBean.class})
 public class ClickAndSendSmsConfiguration {
 
     /**

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -8,10 +10,21 @@
 		<version>1.1.0-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<javamail-site-url>${providers-site-url}/javamail</javamail-site-url>
+		<javamail-dist-site-url>${providers-dist-site-url}/javamail</javamail-dist-site-url>
+	</properties>
 	<artifactId>albirar-communications-provider-javamail</artifactId>
 	<packaging>jar</packaging>
 	<name>Albirar Communications Library - EMail Provider with JavaMail</name>
 	<description>A email provider with javamail</description>
+	<url>${javamail-site-url}/</url>
+	<distributionManagement>
+		<site>
+			<id>site_github_javamail</id>
+			<url>${javamail-dist-site-url}/</url>
+		</site>
+	</distributionManagement>
 
 	<dependencies>
 		<!-- EMAIL -->
@@ -71,6 +84,10 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-remote-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok-maven-plugin</artifactId>
 			</plugin>
@@ -91,6 +108,13 @@
 				<artifactId>maven-scm-publish-plugin</artifactId>
 				<configuration>
 					<skipDeployement>true</skipDeployement>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<topSiteURL>${parent.distributionManagement.site.url}/providers/javamail</topSiteURL>
 				</configuration>
 			</plugin>
 		</plugins>

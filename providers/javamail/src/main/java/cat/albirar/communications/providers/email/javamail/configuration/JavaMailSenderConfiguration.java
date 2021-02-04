@@ -39,6 +39,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.configuration.IPropertiesComm;
 import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider;
+import cat.albirar.communications.providers.email.javamail.models.JavaMailPropertiesBean;
 
 /**
  * An email provider that uses a {@link JavaMailSender}.
@@ -47,7 +48,7 @@ import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEm
  */
 @Configuration
 @ImportAutoConfiguration(classes = AlbirarCommunicationsConfiguration.class)
-@ComponentScan(basePackageClasses = JavaMailSenderEmailProvider.class)
+@ComponentScan(basePackageClasses = {JavaMailSenderEmailProvider.class, JavaMailPropertiesBean.class})
 public class JavaMailSenderConfiguration {
     private static final Logger LOGGER = LoggerFactory.getLogger(JavaMailSenderConfiguration.class);
 

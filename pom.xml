@@ -10,23 +10,36 @@
 		<version>2.0.9</version>
 	</parent>
 
+	<properties>
+		<scm.site>scm:git:ssh://git@github.com/albirar/albirar-communications.git</scm.site>
+		<albirar-template.version>2.0.2</albirar-template.version>
+		<root-site-url>https://albirar.github.io/albirar-communications</root-site-url>
+<!-- 		<root-dist-site-url>https://albirar.github.io/albirar-communications</root-dist-site-url> -->
+		<root-dist-site-url>file:///home/octavi/Dropbox/feina/projectes/fam/albirar-communications/target/staging/</root-dist-site-url>
+		
+		<resource-package>${project.parent.groupId}:${project.parent.artifactId}:${project.parent.version}:jar:assembly-resources</resource-package>
+	</properties>
+
 	<groupId>cat.albirar.lib</groupId>
 	<artifactId>albirar-communications</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Albirar Communications Library</name>
 	<description>Root pom for all communications library components</description>
-	<url>https://albirar.github.io/albirar-communications</url>
+	<url>${root-site-url}/</url>
 
-	<properties>
-		<albirar-template.version>2.0.2</albirar-template.version>
-	</properties>
+	<distributionManagement>
+		<site>
+			<id>site_github</id>
+			<url>${root-dist-site-url}/</url>
+		</site>
+	</distributionManagement>
 
 	<scm>
 		<connection>scm:git:https://github.com/albirar/albirar-communications.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/albirar/albirar-communication.git</developerConnection>
 		<tag>HEAD</tag>
-		<url>https://github.com/albirar/albirar-communications</url>
+		<url>https://github.com/albirar/albirar-communications/</url>
 	</scm>
 
 	<ciManagement>
@@ -38,13 +51,6 @@
 		<system>Github</system>
 		<url>https://github.com/albirar/albirar-communications/issues</url>
 	</issueManagement>
-
-	<distributionManagement>
-		<site>
-			<id>site_github</id>
-			<url>scm:git:ssh://git@github.com/albirar/albirar-communications.git</url>
-		</site>
-	</distributionManagement>
 
 
 	<developers>
@@ -108,9 +114,43 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<dependencies>
+		<!-- To avoid problems with eclipse running with JDK 11 or greater -->
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.cobertura</groupId>
+			<artifactId>cobertura</artifactId>
+			<version>2.1.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-remote-resources-plugin</artifactId>
+					<version>1.7.0</version>
+					<configuration>
+						<resourceBundles>
+							<resourceBundle>cat.albirar:albirar-root-dependencies:2.0.9:jar:assembly-resources</resourceBundle>
+						</resourceBundles>
+						<outputDirectory>${project.build.directory}/site</outputDirectory>
+					</configuration>
+					<executions>
+						<execution>
+							<id>obtain-resources</id>
+							<phase>pre-site</phase>
+							<goals>
+								<goal>process</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
@@ -119,8 +159,7 @@
 							<id>deploy-site-no-test-site</id>
 							<phase>site-deploy</phase>
 							<configuration>
-								<generateProjectInfo>false</generateProjectInfo>
-								<generateReports>false</generateReports>
+								<skipDeploy>true</skipDeploy>
 							</configuration>
 						</execution>
 					</executions>
@@ -222,9 +261,29 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-scm-publish-plugin</artifactId>
 				<configuration>
+					<checkinComment>Web site Checking for ${project.name}</checkinComment>
 					<skipDeployement>false</skipDeployement>
+					<scmBranch>gh-pages</scmBranch>
+					<content>${project.build.directory}/staging</content>
+					<pubScmUrl>${scm.site}</pubScmUrl>
 				</configuration>
 				<inherited>false</inherited>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<topSiteURL>${parent.distributionManagement.site.url}/</topSiteURL>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-site-descriptor</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-descriptor</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

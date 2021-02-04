@@ -7,12 +7,24 @@
 		<artifactId>albirar-communications</artifactId>
 		<version>1.1.0-SNAPSHOT</version>
 	</parent>
-
+	
+	<properties>
+		<core-site-url>${root-site-url}/core</core-site-url>
+		<core-dist-site-url>${root-dist-site-url}/core</core-dist-site-url>
+	</properties>
+	
 	<artifactId>albirar-communications-core</artifactId>
 	<packaging>jar</packaging>
 	<name>Albirar Communications Library - Core</name>
 	<description>Some services to abstract action of communicate with email or sms</description>
+	<url>${core-site-url}/</url>
 
+	<distributionManagement>
+		<site>
+			<id>site_github_core</id>
+			<url>${core-dist-site-url}/</url>
+		</site>
+	</distributionManagement>
 
 	<dependencies>
 		<!-- TEMPLATES -->
@@ -105,6 +117,14 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-remote-resources-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

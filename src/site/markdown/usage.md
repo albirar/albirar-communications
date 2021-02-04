@@ -17,8 +17,6 @@ If use the default providers:
 </dependency>
 ```
 
-
-
 Should to add the discovery of components for providers.
 Second, configure some aspects of providers, like host and port, credentials, etc.
 

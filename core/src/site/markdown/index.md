@@ -1,4 +1,12 @@
-# RabbitMQ configuration
+# Core usage
+
+## Configuration
+
+Although default properties values are enough to run in most of environments, in some cases another values should to be indicated.
+
+Here is a configuration table for `core` operations:
+
+### RabbitMQ configuration
 
 The connection of RabbitMQ client used by *albirar communications* is configurable by properties (see https://www.rabbitmq.com/api-guide.html#connecting)
 
@@ -10,7 +18,8 @@ The connection of RabbitMQ client used by *albirar communications* is configurab
 | `albirar.communications.connection.host`     | The server's host | "localhost" |
 | `albirar.communications.connection.port`         | The port to connect to. 5672 for regular connections and 5671 for TLS connections | 5672 (regular connections) |
 
-# Exchange and queues
+### Exchange and queues
+
 The following are the exchange and queue names for *albirar communications* operations. This names are not configurable.
 
 | Item | Name     | Description                    |
@@ -21,6 +30,27 @@ The following are the exchange and queue names for *albirar communications* oper
 | Report email queue | `emailReportQueue` | The queue for reporting status and result of every email send |
 | Report sms queue | `smsReportQueue` | The queue for reporting status and result of every sms send |
 
+## Usage
 
+Use the service:
 
+```java
 
+@Autowired
+private ICommunicationService communicationService;
+
+   // ...
+
+   String idMsg = communicationService.pushMessage(message);
+   // ...
+   oMsg = communicationService.popStatusMessage(idMsg);
+   if(oMsg.isPresent()) {
+       if(oMsg.get().getStatus() == EStatusMessage.SEND) {
+           // ...
+       }
+       if(oMsg.get().getStatus() == EStatusMessage.ERROR) {
+           // ...
+       }
+   }
+   // ...
+```
