@@ -1,0 +1,7 @@
+cat.albirar.communications.providers
+cat.albirar.communications.providers.email
+cat.albirar.communications.providers.mocks
+cat.albirar.communications.services.impl
+cat.albirar.communications.test
+cat.albirar.communications.test.app.configuration
+cat.albirar.communications.test.configuration

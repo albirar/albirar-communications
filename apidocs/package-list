@@ -10,8 +10,8 @@ cat.albirar.communications.providers.email.javamail.configuration
 cat.albirar.communications.providers.email.javamail.impl
 cat.albirar.communications.providers.email.javamail.models
 cat.albirar.communications.providers.sms
-cat.albirar.communications.providers.sms.clickandsend
 cat.albirar.communications.providers.sms.clickandsend.configuration
+cat.albirar.communications.providers.sms.clickandsend.impl
 cat.albirar.communications.providers.sms.clickandsend.models
 cat.albirar.communications.services
 cat.albirar.communications.services.impl
