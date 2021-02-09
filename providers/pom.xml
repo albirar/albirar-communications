@@ -13,8 +13,9 @@
 	
 	<properties>
 		<cs.version>1.0.0</cs.version>
-		<providers-site-url>${root-site-url}/providers</providers-site-url>
-		<providers-dist-site-url>${root-dist-site-url}/providers</providers-dist-site-url>
+		<providers-site-subdir>providers</providers-site-subdir>
+		<providers-site-url>${root-site-url}/${providers-site-subdir}</providers-site-url>
+		<providers-dist-site-url>${root-dist-site-url}/${providers-site-subdir}</providers-dist-site-url>
 	</properties>
 
 	<artifactId>albirar-communications-providers</artifactId>
@@ -25,7 +26,7 @@
 	
 	<distributionManagement>
 		<site>
-			<id>site_github_providers</id>
+			<id>albirar-site_github_providers</id>
 			<url>${providers-dist-site-url}/</url>
 		</site>
 	</distributionManagement>
@@ -60,23 +61,23 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-publish-plugin</artifactId>
-				<configuration>
-					<skipDeployement>true</skipDeployement>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>attach-site-descriptor</id>
+						<id>albirar-attach-site-descriptor</id>
 						<phase>package</phase>
 						<goals>
 							<goal>attach-descriptor</goal>
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<configuration>
+					<subDirectory>${providers-site-subdir}</subDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

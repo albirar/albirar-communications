@@ -12,8 +12,10 @@
 	</parent>
 
 	<properties>
-		<javamail-site-url>${providers-site-url}/javamail</javamail-site-url>
-		<javamail-dist-site-url>${providers-dist-site-url}/javamail</javamail-dist-site-url>
+		<javamail-name>javamail</javamail-name>
+		<javamail-site-subdir>${providers-site-subdir}/${javamail-name}</javamail-site-subdir>
+		<javamail-site-url>${providers-site-url}/${javamail-name}</javamail-site-url>
+		<javamail-dist-site-url>${providers-dist-site-url}/${javamail-name}</javamail-dist-site-url>
 	</properties>
 	<artifactId>albirar-communications-provider-javamail</artifactId>
 	<packaging>jar</packaging>
@@ -22,7 +24,7 @@
 	<url>${javamail-site-url}/</url>
 	<distributionManagement>
 		<site>
-			<id>site_github_javamail</id>
+			<id>albirar-site_github_javamail</id>
 			<url>${javamail-dist-site-url}/</url>
 		</site>
 	</distributionManagement>
@@ -102,18 +104,18 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-publish-plugin</artifactId>
-				<configuration>
-					<skipDeployement>true</skipDeployement>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-remote-resources-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<configuration>
+					<subDirectory>${javamail-site-subdir}</subDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

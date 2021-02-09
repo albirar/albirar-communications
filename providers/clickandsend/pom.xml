@@ -13,8 +13,10 @@
 
 	<properties>
 		<cs.version>1.0.0</cs.version>
-		<cs-site-url>${providers-site-url}/clickandsend</cs-site-url>
-		<cs-dist-site-url>${providers-dist-site-url}/clickandsend</cs-dist-site-url>
+		<cs-name>clickandsend</cs-name>
+		<cs-site-subdir>${providers-site-subdir}/${cs-name}</cs-site-subdir>
+		<cs-site-url>${providers-site-url}/${cs-name}</cs-site-url>
+		<cs-dist-site-url>${providers-dist-site-url}/${cs-name}</cs-dist-site-url>
 	</properties>
 
 	<artifactId>albirar-communications-provider-clickandsend</artifactId>
@@ -24,7 +26,7 @@
 	<url>${cs-site-url}/</url>
 	<distributionManagement>
 		<site>
-			<id>site_github_cs</id>
+			<id>albirar-site_github_cs</id>
 			<url>${cs-dist-site-url}/</url>
 		</site>
 	</distributionManagement>
@@ -95,14 +97,14 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-publish-plugin</artifactId>
-				<configuration>
-					<skipDeployement>true</skipDeployement>
-				</configuration>
+				<artifactId>maven-site-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<configuration>
+					<subDirectory>${cs-site-subdir}</subDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

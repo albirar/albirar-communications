@@ -12,8 +12,9 @@
 	</parent>
 
 	<properties>
-		<core-site-url>${root-site-url}/core</core-site-url>
-		<core-dist-site-url>${root-dist-site-url}/core</core-dist-site-url>
+		<core-site-subdir>core</core-site-subdir>
+		<core-site-url>${root-site-url}/${core-site-subdir}</core-site-url>
+		<core-dist-site-url>${root-dist-site-url}/${core-site-subdir}</core-dist-site-url>
 	</properties>
 
 	<artifactId>albirar-communications-core</artifactId>
@@ -24,7 +25,7 @@
 
 	<distributionManagement>
 		<site>
-			<id>site_github_core</id>
+			<id>albirar-site_github_core</id>
 			<url>${core-dist-site-url}/</url>
 		</site>
 	</distributionManagement>
@@ -108,13 +109,6 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-publish-plugin</artifactId>
-				<configuration>
-					<skipDeployement>true</skipDeployement>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 			</plugin>
 			<plugin>
@@ -128,6 +122,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<configuration>
+					<subDirectory>${core-site-subdir}</subDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -25,8 +25,23 @@ The properties are:
 
 ## Usage
 
-This provider, like any other, is not used directly but used by [core](core/index.html) service.
+This provider are "discovered" by default if SpringBoot *autoconfiguration* is enabled.
 
-The provider C&S is selected when CommunicationChannelBean of both, sender and recipient, are SMS.
+Also, if *autoconfiguration* is dissabled, you should to use the annotation `cat.albirar.communications.providers.sms.clickandsend.configuration.AutoconfigureClickAndSendSmsProvider` in your configuration class:
 
+```java
+@Configuration
+@AutoconfigureClickAndSendSmsProvider
+public AppConfig {
+// ...
+```
+
+This annotation configure the provider for use.
+
+**!!Remember to configure Click&Send service properties**
+
+
+This provider, like any other, is not used directly but used by [core](/core/index.html) service that select it by sender and recipient channel type criteria.
+
+The provider ClickAndSend is selected when [CommunicationChannelBean](/apidocs/cat/albirar/communications/channels/models/CommunicationChannelBean.html] _of both_, sender and recipient, are [SMS](/apidocs/cat/albirar/communications/channels/models/ECommunicationChannelType.html#SMS)
 
