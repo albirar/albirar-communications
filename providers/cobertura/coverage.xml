@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.756838905775076" branch-rate="0.6" lines-covered="249" lines-valid="329" branches-covered="18" branches-valid="30" complexity="2.0" version="2.1.1" timestamp="1612734484525">
+<coverage line-rate="0.756838905775076" branch-rate="0.6" lines-covered="249" lines-valid="329" branches-covered="18" branches-valid="30" complexity="2.0" version="2.1.1" timestamp="1612868220097">
 	<sources>
 		<source>--source</source>
 		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/providers/javamail/target/generated-sources/delombok</source>
