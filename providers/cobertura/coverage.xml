@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.756838905775076" branch-rate="0.6" lines-covered="249" lines-valid="329" branches-covered="18" branches-valid="30" complexity="2.0" version="2.1.1" timestamp="1612868220097">
+<coverage line-rate="0.756838905775076" branch-rate="0.6" lines-covered="249" lines-valid="329" branches-covered="18" branches-valid="30" complexity="2.0" version="2.1.1" timestamp="1612875567604">
 	<sources>
 		<source>--source</source>
-		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/providers/javamail/target/generated-sources/delombok</source>
 		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/providers/clickandsend/src/main/java</source>
-		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/providers/clickandsend/target/generated-sources/delombok</source>
 		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/providers/javamail/src/main/java</source>
 	</sources>
 	<packages>
@@ -652,102 +650,102 @@
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="53" hits="4" branch="false"/>
+								<line number="53" hits="24" branch="false"/>
 							</lines>
 						</method>
 						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="52" hits="4" branch="false"/>
+								<line number="52" hits="24" branch="false"/>
 							</lines>
 						</method>
 						<method name="javaMailSender" signature="(Lorg/springframework/core/env/ConfigurableEnvironment;)Lorg/springframework/mail/javamail/JavaMailSender;" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="114" hits="1" branch="false"/>
-								<line number="115" hits="1" branch="false"/>
-								<line number="118" hits="1" branch="false"/>
-								<line number="120" hits="1" branch="true" condition-coverage="100% (2/2)">
+								<line number="114" hits="6" branch="false"/>
+								<line number="115" hits="6" branch="false"/>
+								<line number="118" hits="6" branch="false"/>
+								<line number="120" hits="6" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
 									</conditions>
 								</line>
-								<line number="121" hits="3" branch="false"/>
-								<line number="125" hits="3" branch="false"/>
-								<line number="127" hits="1" branch="false"/>
-								<line number="128" hits="1" branch="false"/>
-								<line number="129" hits="1" branch="false"/>
-								<line number="130" hits="1" branch="false"/>
-								<line number="132" hits="2" branch="false"/>
-								<line number="133" hits="1" branch="false"/>
-								<line number="134" hits="1" branch="false"/>
-								<line number="135" hits="1" branch="false"/>
-								<line number="136" hits="1" branch="false"/>
-								<line number="137" hits="1" branch="false"/>
-								<line number="138" hits="1" branch="false"/>
-								<line number="140" hits="1" branch="false"/>
-								<line number="141" hits="1" branch="false"/>
-								<line number="142" hits="1" branch="false"/>
-								<line number="143" hits="1" branch="false"/>
-								<line number="144" hits="1" branch="false"/>
-								<line number="145" hits="1" branch="false"/>
-								<line number="146" hits="1" branch="false"/>
+								<line number="121" hits="18" branch="false"/>
+								<line number="125" hits="18" branch="false"/>
+								<line number="127" hits="6" branch="false"/>
+								<line number="128" hits="6" branch="false"/>
+								<line number="129" hits="6" branch="false"/>
+								<line number="130" hits="6" branch="false"/>
+								<line number="132" hits="12" branch="false"/>
+								<line number="133" hits="6" branch="false"/>
+								<line number="134" hits="6" branch="false"/>
+								<line number="135" hits="6" branch="false"/>
+								<line number="136" hits="6" branch="false"/>
+								<line number="137" hits="6" branch="false"/>
+								<line number="138" hits="6" branch="false"/>
+								<line number="140" hits="6" branch="false"/>
+								<line number="141" hits="6" branch="false"/>
+								<line number="142" hits="6" branch="false"/>
+								<line number="143" hits="6" branch="false"/>
+								<line number="144" hits="6" branch="false"/>
+								<line number="145" hits="6" branch="false"/>
+								<line number="146" hits="6" branch="false"/>
 							</lines>
 						</method>
 						<method name="lambda$javaMailSender$0" signature="(Lorg/springframework/core/env/PropertySource;)Z" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="116" hits="4" branch="false"/>
+								<line number="116" hits="24" branch="false"/>
 							</lines>
 						</method>
 						<method name="lambda$javaMailSender$1" signature="(Lorg/springframework/core/env/PropertySource;)Lorg/springframework/core/env/EnumerablePropertySource;" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="117" hits="4" branch="false"/>
+								<line number="117" hits="24" branch="false"/>
 							</lines>
 						</method>
 						<method name="lambda$javaMailSender$2" signature="(Ljava/lang/String;)Z" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="122" hits="166" branch="false"/>
+								<line number="122" hits="996" branch="false"/>
 							</lines>
 						</method>
 						<method name="lambda$javaMailSender$3" signature="(Ljava/util/Properties;Lorg/springframework/core/env/ConfigurableEnvironment;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="123" hits="12" branch="false"/>
+								<line number="123" hits="72" branch="false"/>
 							</lines>
 						</method>
 					</methods>
 					<lines>
-						<line number="52" hits="4" branch="false"/>
-						<line number="53" hits="4" branch="false"/>
-						<line number="114" hits="1" branch="false"/>
-						<line number="115" hits="1" branch="false"/>
-						<line number="116" hits="4" branch="false"/>
-						<line number="117" hits="4" branch="false"/>
-						<line number="118" hits="1" branch="false"/>
-						<line number="120" hits="1" branch="true" condition-coverage="100% (2/2)">
+						<line number="52" hits="24" branch="false"/>
+						<line number="53" hits="24" branch="false"/>
+						<line number="114" hits="6" branch="false"/>
+						<line number="115" hits="6" branch="false"/>
+						<line number="116" hits="24" branch="false"/>
+						<line number="117" hits="24" branch="false"/>
+						<line number="118" hits="6" branch="false"/>
+						<line number="120" hits="6" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
 							</conditions>
 						</line>
-						<line number="121" hits="3" branch="false"/>
-						<line number="122" hits="166" branch="false"/>
-						<line number="123" hits="12" branch="false"/>
-						<line number="125" hits="3" branch="false"/>
-						<line number="127" hits="1" branch="false"/>
-						<line number="128" hits="1" branch="false"/>
-						<line number="129" hits="1" branch="false"/>
-						<line number="130" hits="1" branch="false"/>
-						<line number="132" hits="2" branch="false"/>
-						<line number="133" hits="1" branch="false"/>
-						<line number="134" hits="1" branch="false"/>
-						<line number="135" hits="1" branch="false"/>
-						<line number="136" hits="1" branch="false"/>
-						<line number="137" hits="1" branch="false"/>
-						<line number="138" hits="1" branch="false"/>
-						<line number="140" hits="1" branch="false"/>
-						<line number="141" hits="1" branch="false"/>
-						<line number="142" hits="1" branch="false"/>
-						<line number="143" hits="1" branch="false"/>
-						<line number="144" hits="1" branch="false"/>
-						<line number="145" hits="1" branch="false"/>
-						<line number="146" hits="1" branch="false"/>
+						<line number="121" hits="18" branch="false"/>
+						<line number="122" hits="996" branch="false"/>
+						<line number="123" hits="72" branch="false"/>
+						<line number="125" hits="18" branch="false"/>
+						<line number="127" hits="6" branch="false"/>
+						<line number="128" hits="6" branch="false"/>
+						<line number="129" hits="6" branch="false"/>
+						<line number="130" hits="6" branch="false"/>
+						<line number="132" hits="12" branch="false"/>
+						<line number="133" hits="6" branch="false"/>
+						<line number="134" hits="6" branch="false"/>
+						<line number="135" hits="6" branch="false"/>
+						<line number="136" hits="6" branch="false"/>
+						<line number="137" hits="6" branch="false"/>
+						<line number="138" hits="6" branch="false"/>
+						<line number="140" hits="6" branch="false"/>
+						<line number="141" hits="6" branch="false"/>
+						<line number="142" hits="6" branch="false"/>
+						<line number="143" hits="6" branch="false"/>
+						<line number="144" hits="6" branch="false"/>
+						<line number="145" hits="6" branch="false"/>
+						<line number="146" hits="6" branch="false"/>
 					</lines>
 				</class>
 			</classes>
@@ -758,54 +756,54 @@
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="45" hits="4" branch="false"/>
+								<line number="45" hits="24" branch="false"/>
 							</lines>
 						</method>
 						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="44" hits="4" branch="false"/>
+								<line number="44" hits="24" branch="false"/>
 							</lines>
 						</method>
 						<method name="getName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="59" hits="3" branch="false"/>
+								<line number="59" hits="18" branch="false"/>
 							</lines>
 						</method>
 						<method name="sendEmail" signature="(Ljava/lang/String;Lcat/albirar/communications/channels/models/ContactBean;Lcat/albirar/communications/channels/models/ContactBean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="69" hits="3" branch="false"/>
-								<line number="71" hits="3" branch="false"/>
-								<line number="72" hits="2" branch="false"/>
-								<line number="73" hits="2" branch="false"/>
-								<line number="74" hits="4" branch="false"/>
-								<line number="75" hits="2" branch="false"/>
-								<line number="76" hits="2" branch="false"/>
-								<line number="78" hits="1" branch="false"/>
-								<line number="81" hits="1" branch="false"/>
-								<line number="82" hits="1" branch="false"/>
-								<line number="83" hits="1" branch="false"/>
-								<line number="84" hits="2" branch="false"/>
-								<line number="85" hits="2" branch="false"/>
+								<line number="69" hits="18" branch="false"/>
+								<line number="71" hits="18" branch="false"/>
+								<line number="72" hits="12" branch="false"/>
+								<line number="73" hits="12" branch="false"/>
+								<line number="74" hits="24" branch="false"/>
+								<line number="75" hits="12" branch="false"/>
+								<line number="76" hits="12" branch="false"/>
+								<line number="78" hits="6" branch="false"/>
+								<line number="81" hits="6" branch="false"/>
+								<line number="82" hits="6" branch="false"/>
+								<line number="83" hits="6" branch="false"/>
+								<line number="84" hits="12" branch="false"/>
+								<line number="85" hits="12" branch="false"/>
 							</lines>
 						</method>
 					</methods>
 					<lines>
-						<line number="44" hits="4" branch="false"/>
-						<line number="45" hits="4" branch="false"/>
-						<line number="59" hits="3" branch="false"/>
-						<line number="69" hits="3" branch="false"/>
-						<line number="71" hits="3" branch="false"/>
-						<line number="72" hits="2" branch="false"/>
-						<line number="73" hits="2" branch="false"/>
-						<line number="74" hits="4" branch="false"/>
-						<line number="75" hits="2" branch="false"/>
-						<line number="76" hits="2" branch="false"/>
-						<line number="78" hits="1" branch="false"/>
-						<line number="81" hits="1" branch="false"/>
-						<line number="82" hits="1" branch="false"/>
-						<line number="83" hits="1" branch="false"/>
-						<line number="84" hits="2" branch="false"/>
-						<line number="85" hits="2" branch="false"/>
+						<line number="44" hits="24" branch="false"/>
+						<line number="45" hits="24" branch="false"/>
+						<line number="59" hits="18" branch="false"/>
+						<line number="69" hits="18" branch="false"/>
+						<line number="71" hits="18" branch="false"/>
+						<line number="72" hits="12" branch="false"/>
+						<line number="73" hits="12" branch="false"/>
+						<line number="74" hits="24" branch="false"/>
+						<line number="75" hits="12" branch="false"/>
+						<line number="76" hits="12" branch="false"/>
+						<line number="78" hits="6" branch="false"/>
+						<line number="81" hits="6" branch="false"/>
+						<line number="82" hits="6" branch="false"/>
+						<line number="83" hits="6" branch="false"/>
+						<line number="84" hits="12" branch="false"/>
+						<line number="85" hits="12" branch="false"/>
 					</lines>
 				</class>
 			</classes>
@@ -822,30 +820,30 @@
 					<methods>
 						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="41" hits="2" branch="false"/>
+								<line number="41" hits="12" branch="false"/>
 							</lines>
 						</method>
 						<method name="apiClient" signature="(Lcat/albirar/communications/providers/sms/clickandsend/models/ClickAndSendPropertiesBean;)LClickSend/ApiClient;" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="53" hits="1" branch="false"/>
-								<line number="54" hits="1" branch="false"/>
-								<line number="55" hits="1" branch="false"/>
-								<line number="57" hits="1" branch="false"/>
+								<line number="53" hits="6" branch="false"/>
+								<line number="54" hits="6" branch="false"/>
+								<line number="55" hits="6" branch="false"/>
+								<line number="57" hits="6" branch="false"/>
 							</lines>
 						</method>
 						<method name="apiSms" signature="(LClickSend/ApiClient;)LClickSend/Api/SmsApi;" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="67" hits="2" branch="false"/>
+								<line number="67" hits="12" branch="false"/>
 							</lines>
 						</method>
 					</methods>
 					<lines>
-						<line number="41" hits="2" branch="false"/>
-						<line number="53" hits="1" branch="false"/>
-						<line number="54" hits="1" branch="false"/>
-						<line number="55" hits="1" branch="false"/>
-						<line number="57" hits="1" branch="false"/>
-						<line number="67" hits="2" branch="false"/>
+						<line number="41" hits="12" branch="false"/>
+						<line number="53" hits="6" branch="false"/>
+						<line number="54" hits="6" branch="false"/>
+						<line number="55" hits="6" branch="false"/>
+						<line number="57" hits="6" branch="false"/>
+						<line number="67" hits="12" branch="false"/>
 					</lines>
 				</class>
 			</classes>
@@ -856,92 +854,92 @@
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="48" hits="2" branch="false"/>
+								<line number="48" hits="12" branch="false"/>
 							</lines>
 						</method>
 						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="47" hits="2" branch="false"/>
+								<line number="47" hits="12" branch="false"/>
 							</lines>
 						</method>
 						<method name="getName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="60" hits="1" branch="false"/>
+								<line number="60" hits="6" branch="false"/>
 							</lines>
 						</method>
 						<method name="sendSms" signature="(Ljava/lang/String;Lcat/albirar/communications/channels/models/ContactBean;Lcat/albirar/communications/channels/models/ContactBean;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="74" hits="5" branch="true" condition-coverage="100% (2/2)">
+								<line number="74" hits="30" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
 									</conditions>
 								</line>
-								<line number="75" hits="4" branch="true" condition-coverage="100% (2/2)">
+								<line number="75" hits="24" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
 									</conditions>
 								</line>
-								<line number="76" hits="3" branch="false"/>
-								<line number="77" hits="3" branch="false"/>
-								<line number="78" hits="3" branch="false"/>
-								<line number="79" hits="3" branch="false"/>
-								<line number="80" hits="3" branch="false"/>
-								<line number="82" hits="3" branch="false"/>
-								<line number="84" hits="3" branch="false"/>
-								<line number="85" hits="2" branch="true" condition-coverage="100% (2/2)">
+								<line number="76" hits="18" branch="false"/>
+								<line number="77" hits="18" branch="false"/>
+								<line number="78" hits="18" branch="false"/>
+								<line number="79" hits="18" branch="false"/>
+								<line number="80" hits="18" branch="false"/>
+								<line number="82" hits="18" branch="false"/>
+								<line number="84" hits="18" branch="false"/>
+								<line number="85" hits="12" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
 									</conditions>
 								</line>
-								<line number="86" hits="1" branch="false"/>
-								<line number="87" hits="1" branch="false"/>
-								<line number="88" hits="1" branch="false"/>
-								<line number="91" hits="1" branch="false"/>
-								<line number="92" hits="1" branch="false"/>
-								<line number="93" hits="1" branch="false"/>
-								<line number="94" hits="1" branch="false"/>
-								<line number="95" hits="1" branch="false"/>
-								<line number="97" hits="1" branch="false"/>
-								<line number="98" hits="1" branch="false"/>
+								<line number="86" hits="6" branch="false"/>
+								<line number="87" hits="6" branch="false"/>
+								<line number="88" hits="6" branch="false"/>
+								<line number="91" hits="6" branch="false"/>
+								<line number="92" hits="6" branch="false"/>
+								<line number="93" hits="6" branch="false"/>
+								<line number="94" hits="6" branch="false"/>
+								<line number="95" hits="6" branch="false"/>
+								<line number="97" hits="6" branch="false"/>
+								<line number="98" hits="6" branch="false"/>
 							</lines>
 						</method>
 					</methods>
 					<lines>
-						<line number="47" hits="2" branch="false"/>
-						<line number="48" hits="2" branch="false"/>
-						<line number="60" hits="1" branch="false"/>
-						<line number="74" hits="5" branch="true" condition-coverage="100% (2/2)">
+						<line number="47" hits="12" branch="false"/>
+						<line number="48" hits="12" branch="false"/>
+						<line number="60" hits="6" branch="false"/>
+						<line number="74" hits="30" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
 							</conditions>
 						</line>
-						<line number="75" hits="4" branch="true" condition-coverage="100% (2/2)">
+						<line number="75" hits="24" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
 							</conditions>
 						</line>
-						<line number="76" hits="3" branch="false"/>
-						<line number="77" hits="3" branch="false"/>
-						<line number="78" hits="3" branch="false"/>
-						<line number="79" hits="3" branch="false"/>
-						<line number="80" hits="3" branch="false"/>
-						<line number="82" hits="3" branch="false"/>
-						<line number="84" hits="3" branch="false"/>
-						<line number="85" hits="2" branch="true" condition-coverage="100% (2/2)">
+						<line number="76" hits="18" branch="false"/>
+						<line number="77" hits="18" branch="false"/>
+						<line number="78" hits="18" branch="false"/>
+						<line number="79" hits="18" branch="false"/>
+						<line number="80" hits="18" branch="false"/>
+						<line number="82" hits="18" branch="false"/>
+						<line number="84" hits="18" branch="false"/>
+						<line number="85" hits="12" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
 							</conditions>
 						</line>
-						<line number="86" hits="1" branch="false"/>
-						<line number="87" hits="1" branch="false"/>
-						<line number="88" hits="1" branch="false"/>
-						<line number="91" hits="1" branch="false"/>
-						<line number="92" hits="1" branch="false"/>
-						<line number="93" hits="1" branch="false"/>
-						<line number="94" hits="1" branch="false"/>
-						<line number="95" hits="1" branch="false"/>
-						<line number="97" hits="1" branch="false"/>
-						<line number="98" hits="1" branch="false"/>
+						<line number="86" hits="6" branch="false"/>
+						<line number="87" hits="6" branch="false"/>
+						<line number="88" hits="6" branch="false"/>
+						<line number="91" hits="6" branch="false"/>
+						<line number="92" hits="6" branch="false"/>
+						<line number="93" hits="6" branch="false"/>
+						<line number="94" hits="6" branch="false"/>
+						<line number="95" hits="6" branch="false"/>
+						<line number="97" hits="6" branch="false"/>
+						<line number="98" hits="6" branch="false"/>
 					</lines>
 				</class>
 			</classes>
