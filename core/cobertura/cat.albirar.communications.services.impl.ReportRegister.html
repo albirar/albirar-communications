@@ -158,11 +158,11 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">boolean</span> isReport(String messageId) {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;79</td>  <td class="nbHitsCovered">&nbsp;520</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">synchronized</span>(reports) {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;80</td>  <td class="nbHitsCovered"><a title="Line 80: Conditional coverage 100% (2/2).">&nbsp;520</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 80: Conditional coverage 100% (2/2).">            <span class="keyword">for</span>(String collectionId : reports.keySet()) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;81</td>  <td class="nbHitsCovered"><a title="Line 81: Conditional coverage 100% (2/2).">&nbsp;507</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 81: Conditional coverage 100% (2/2).">                <span class="keyword">if</span>(reports.get(collectionId).containsKey(messageId)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;81</td>  <td class="nbHitsCovered"><a title="Line 81: Conditional coverage 100% (2/2).">&nbsp;509</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 81: Conditional coverage 100% (2/2).">                <span class="keyword">if</span>(reports.get(collectionId).containsKey(messageId)) {</a></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;82</td>  <td class="nbHitsCovered">&nbsp;107</td>  <td class="src"><pre class="src">&nbsp;                    <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;83</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;84</td>  <td class="nbHitsCovered">&nbsp;400</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;84</td>  <td class="nbHitsCovered">&nbsp;402</td>  <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;85</td>  <td class="nbHitsCovered">&nbsp;413</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;86</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;87</td>  <td class="nbHits">&nbsp;</td>
@@ -181,15 +181,15 @@
   <td class="src"><pre class="src">&nbsp;        ConcurrentMap&lt;String, MessageStatusBean&gt; collection;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;94</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        </pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;95</td>  <td class="nbHitsCovered">&nbsp;412</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">synchronized</span>(reports) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;96</td>  <td class="nbHitsCovered"><a title="Line 96: Conditional coverage 100% (2/2).">&nbsp;412</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 96: Conditional coverage 100% (2/2).">            <span class="keyword">if</span>(!reports.containsKey(collectionId)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;                reports.put(collectionId, <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;95</td>  <td class="nbHitsCovered">&nbsp;411</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">synchronized</span>(reports) {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;96</td>  <td class="nbHitsCovered"><a title="Line 96: Conditional coverage 100% (2/2).">&nbsp;411</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 96: Conditional coverage 100% (2/2).">            <span class="keyword">if</span>(!reports.containsKey(collectionId)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                reports.put(collectionId, <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;98</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;99</td>  <td class="nbHitsCovered">&nbsp;412</td>  <td class="src"><pre class="src">&nbsp;            collection = reports.get(collectionId);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;100</td>  <td class="nbHitsCovered">&nbsp;412</td>  <td class="src"><pre class="src">&nbsp;            collection.put(messageId, report);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;101</td>  <td class="nbHitsCovered">&nbsp;412</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;102</td>  <td class="nbHitsCovered">&nbsp;412</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;99</td>  <td class="nbHitsCovered">&nbsp;411</td>  <td class="src"><pre class="src">&nbsp;            collection = reports.get(collectionId);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;100</td>  <td class="nbHitsCovered">&nbsp;411</td>  <td class="src"><pre class="src">&nbsp;            collection.put(messageId, report);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;101</td>  <td class="nbHitsCovered">&nbsp;411</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;102</td>  <td class="nbHitsCovered">&nbsp;411</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;103</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="comment">/**</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;104</td>  <td class="nbHits">&nbsp;</td>
@@ -202,10 +202,10 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> Optional&lt;MessageStatusBean&gt; removeReport(String collectionId, String messageId) {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;108</td>  <td class="nbHitsCovered">&nbsp;406</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">synchronized</span>(reports) {</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;109</td>  <td class="nbHitsCovered"><a title="Line 109: Conditional coverage 100% (2/2).">&nbsp;406</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 109: Conditional coverage 100% (2/2).">            <span class="keyword">if</span>(reports.containsKey(collectionId)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;110</td>  <td class="nbHitsCovered">&nbsp;405</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> Optional.ofNullable(reports.get(collectionId).remove(messageId));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;110</td>  <td class="nbHitsCovered">&nbsp;404</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> Optional.ofNullable(reports.get(collectionId).remove(messageId));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;111</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;112</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> Optional.empty();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;112</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> Optional.empty();</pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;113</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;114</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
@@ -213,6 +213,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 09/02/21 14:11.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 2.1.1 on 09/02/21 20:48.</div>
 </body>
 </html>
