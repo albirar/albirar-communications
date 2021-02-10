@@ -1,107 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" child.project.url.inherit.append.path="false">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
-		<groupId>cat.albirar.app</groupId>
+		<groupId>cat.albirar</groupId>
 		<artifactId>albirar-root-dependencies</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>2.0.9</version>
 	</parent>
-	<artifactId>albirar-communications</artifactId>
-	<packaging>jar</packaging>
-	<name>albirar-communications</name>
-	<description>Some services to abstract action of communicate with email or sms</description>
 
 	<properties>
-		<jms-api.version>2.0.1</jms-api.version>
-		<rabbitmq-container.version>1.14.3</rabbitmq-container.version>
+		<scm.site>scm:git:ssh://git@github.com/albirar/albirar-communications.git</scm.site>
+		<albirar-template.version>2.0.2</albirar-template.version>
+		<root-site-url>https://albirar.github.io/albirar-communications</root-site-url>
+		<!-- <root-dist-site-url>https://albirar.github.io/albirar-communications</root-dist-site-url> -->
+		<root-dist-site-url>file:///home/octavi/Dropbox/feina/projectes/fam/albirar-communications/target/staging</root-dist-site-url>
+
+		<resource-package>${project.parent.groupId}:${project.parent.artifactId}:${project.parent.version}:jar:assembly-resources</resource-package>
 	</properties>
 
+	<groupId>cat.albirar.lib</groupId>
+	<artifactId>albirar-communications</artifactId>
+	<version>1.1.0</version>
+	<packaging>pom</packaging>
+	<name>Albirar Communications Library</name>
+	<description>Root pom for all communications library components</description>
+	<url>${root-site-url}/</url>
+
+	<distributionManagement>
+		<site>
+			<id>albirar-site_github</id>
+			<url>${root-dist-site-url}/</url>
+		</site>
+	</distributionManagement>
+
+	<scm>
+		<connection>scm:git:https://github.com/albirar/albirar-communications.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/albirar/albirar-communication.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/albirar/albirar-communications/</url>
+	</scm>
+
+	<ciManagement>
+		<system>TravisCI</system>
+		<url>https://travis-ci.com/github/albirar/albirar-communications</url>
+	</ciManagement>
+
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/albirar/albirar-communications/issues</url>
+	</issueManagement>
+
+
+	<developers>
+		<developer>
+			<id>ofornes@albirar.cat</id>
+			<name>Octavi Fornés</name>
+			<email>ofornes@albirar.cat</email>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License v3.0 or later</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url>
+		</license>
+	</licenses>
+
+	<modules>
+		<module>core</module>
+		<module>providers</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.testcontainers</groupId>
+				<artifactId>rabbitmq</artifactId>
+				<version>${rabbitmq-container.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>cat.albirar.lib</groupId>
+				<artifactId>albirar-template-engine</artifactId>
+				<version>${albirar-template.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-autoconfigure</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
-		<!-- TEMPLATES -->
+		<!-- To avoid problems with eclipse running with JDK 11 or greater -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>albirar-template-engine</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<version>${spring-boot.version}</version>
-			<optional>true</optional>
-		</dependency>
-
-		<!-- EMAIL -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${spring.version}</version>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>0</version>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>jakarta.mail</artifactId>
-			<version>${jakarta-mail.version}</version>
-		</dependency>
-
-		<!-- AMQP -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-messaging</artifactId>
-			<version>${spring.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-rabbit</artifactId>
-			<version>${spring-amqp.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.jms</groupId>
-			<artifactId>javax.jms-api</artifactId>
-			<version>${jms-api.version}</version>
-		</dependency>
-
-		<!-- Rest client -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-			<version>${spring-webflux.version}</version>
-		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.projectreactor</groupId> -->
-<!-- 			<artifactId>reactor-spring</artifactId> -->
-<!-- 			<version>${reactor-spring.version}</version> -->
-<!-- 		</dependency> -->
-
-		<!-- Jackson -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-
-		<!-- Testing email -->
-		<dependency>
-			<groupId>com.icegreen</groupId>
-			<artifactId>greenmail</artifactId>
-			<version>${greenmail.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>${jsoup.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- Testing rabbitmq -->
-		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>rabbitmq</artifactId>
-			<version>${rabbitmq-container.version}</version>
+			<groupId>net.sourceforge.cobertura</groupId>
+			<artifactId>cobertura</artifactId>
+			<version>2.1.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<!-- Report configuration -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-changes-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<groups>
+						<group>
+							<title>Core</title>
+							<packages>cat.albirar.communications.core.*</packages>
+						</group>
+						<group>
+							<title>Javamail provider</title>
+							<packages>cat.albirar.communications.providers.email.javamail.*</packages>
+						</group>
+						<group>
+							<title>Click And Send SMS provider</title>
+							<packages>cat.albirar.communications.providers.sms.clickandsend.*</packages>
+						</group>
+					</groups>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-remote-resources-plugin</artifactId>
+					<version>1.7.0</version>
+					<configuration>
+						<resourceBundles>
+							<resourceBundle>cat.albirar:albirar-root-dependencies:2.0.9:jar:assembly-resources</resourceBundle>
+						</resourceBundles>
+						<outputDirectory>${project.build.directory}/site</outputDirectory>
+					</configuration>
+					<executions>
+						<execution>
+							<id>albirar-obtain-resources</id>
+							<phase>pre-site</phase>
+							<goals>
+								<goal>process</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>3.0.0-M5</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-scm-publish-plugin</artifactId>
+					<configuration>
+						<skipDeployement>true</skipDeployement>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<configuration>
+						<skipDeploy>true</skipDeploy>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<!-- This project plugins -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>albirar-attach-site-descriptor</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-descriptor</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<configuration>
+					<checkinComment>Web site Checking for ${project.name}</checkinComment>
+					<skipDeployement>false</skipDeployement>
+					<scmBranch>gh-pages</scmBranch>
+					<pubScmUrl>${scm.site}</pubScmUrl>
+				</configuration>
+				<inherited>false</inherited>
+			</plugin>
+		</plugins>
+	</build>
 </project>

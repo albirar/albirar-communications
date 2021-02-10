@@ -1,0 +1,7 @@
+albirar:
+  communications:
+    sms:
+      cs:
+        api:
+          username: 'user'
+          key: 'key'

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 http://maven.apache.org/xsd/decoration-1.8.0.xsd"
+	name="${this.name}">
+	<publishDate position="left" format="dd-MM-yyy HH:mm" />
+	<version position="left" />
+	
+	<bannerLeft>
+		<href>/</href>
+		<title>${this.name}</title>
+		<name>${this.name}</name>
+	</bannerLeft>
+	
+	<poweredBy>
+		<logo name="Albirar" title="Albirar" alt="Albirar" href="https://albirar.cat" img="images/logo-albirar-icon.png" />
+	</poweredBy>
+	
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.9</version>
+	</skin>
+
+	<custom>
+		<fluidoSkin>
+			<topBarEnabled>true</topBarEnabled>
+			<sideBarEnabled>false</sideBarEnabled>
+		</fluidoSkin>
+	</custom>
+
+	<body>
+		<head>
+			<![CDATA[<link rel="icon" type="image/png" href="images/logo-albirar-icon.png"></link>]]>
+		</head>
+		<menu name="Documentation" title="Documentation" inherit="top">
+			<item title="Core module" name="Core module" href="core/index.html" />
+			<item title="Providers" name="Providers" href="providers/index.html" />
+			<item title="Javamail provider" name="Javamail provider" href="providers/javamail/index.html" />
+			<item title="ClickAndSend provider" name="ClickAndSend provider" href="providers/clickandsend/index.html" />
+		</menu>
+		<menu name="Info and Reports" title="Info and Reports" inherit="top">
+			<item name="Requirements" href="requirements.html"  />
+			<item name="Status" href="status.html" />
+			<item name="Info" href="project-info.html" />
+			<item name="JavaDocs" href="apidocs" />
+		</menu>
+		<menu name="Code" title="Code" inherit="top">
+			<item name="Source code" href="${this.scm.url}"
+				title="Github"
+				img="images/GitHub-Mark-32px.png">
+				<description>Github</description>
+			</item>
+			<item name="CI" href="${this.ciManagement.url}"
+				title="${this.ciManagement.system}"
+				img="images/TravisCI-32px.png">
+				<description>${this.ciManagement.system}</description>
+			</item>
+			<item name="Issues" href="${this.issueManagement.url}"
+				title="${this.issueManagement.system} Issues"
+				img="images/Octocat-32px.png">
+				<description>${this.issueManagement.system} Issues</description>
+			</item>
+			<item name="Coverage" href="https://codeclimate.com/github/albirar/albirar-communications/code"
+				title="Coverage"
+				img="images/bar_char.png">
+				<description>Code coverage</description>
+			</item>
+			<item name="Code climate reports" href="https://codeclimate.com/github/albirar/albirar-communications"
+				title="Code climate reports"
+				img="images/code_climate_logo.png">
+				<description>Code climate reports</description>
+			</item>
+		</menu>
+		<menu name="Releases" title="Releases" inherit="top">
+			<item name="Maven Central - Core" title="Maven Central - Core"
+				img="images/maven-logo-black-on-white-32px.png"
+				href="https://search.maven.org/artifact/${this.groupId}/${this.artifactId}-core" />
+			<item name="Maven Central - Provider Javamail" title="Maven Central - Provider Javamail"
+				img="images/maven-logo-black-on-white-32px.png"
+				href="https://search.maven.org/artifact/${this.groupId}/${this.artifactId}-providers-javamail" />
+			<item name="Maven Central - Provider Click&amp;Send" title="Maven Central - Provider Click&amp;Send"
+				img="images/maven-logo-black-on-white-32px.png"
+				href="https://search.maven.org/artifact/${this.groupId}/${this.artifactId}-providers-clickandsend" />
+		</menu>
+	</body>
+</project>

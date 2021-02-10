@@ -1,0 +1,19 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=06316172e54ed87bcb1d715d2619ddd7e016d16308db4b79640a3dcc15e267fb
+language: java
+jdk:
+  - openjdk8
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+## root-level property is a substitution logback property setted on logback-test.xml files
+  - mvn test -B -Droot-level=ERROR
+after_script:
+  - mvn site -B -Droot-level=ERROR
+  - ./cc-test-reporter format-coverage ./target/site/cobertura/coverage.xml -t cobertura
+  - ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - bash <(curl -s https://codecov.io/bash)

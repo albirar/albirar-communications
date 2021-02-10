@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "albirar.communications.mail.javamail.host",
+    "type": "java.lang.String",
+    "description": "The mail server host"
+  },
+  {
+    "name": "albirar.communications.mail.javamail.port",
+    "type": "int",
+    "description": "The mail server port"
+  },
+  {
+    "name": "albirar.communications.mail.javamail.username",
+    "type": "java.lang.String",
+    "description": "The mail server username"
+  },
+  {
+    "name": "albirar.communications.mail.javamail.password",
+    "type": "java.lang.String",
+    "description": "The mail server user password"
+  }
+]}
