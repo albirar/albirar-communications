@@ -21,10 +21,10 @@ package cat.albirar.communications.test.configuration;
 import java.nio.charset.Charset;
 import java.util.Locale;
 
-import cat.albirar.communications.channels.models.ContactBean;
-import cat.albirar.communications.channels.models.ECommunicationChannelType;
-import cat.albirar.communications.channels.models.LocalizableAttributesCommunicationChannelBean;
-import cat.albirar.communications.messages.models.MessageBean;
+import cat.albirar.communications.core.channels.models.ContactBean;
+import cat.albirar.communications.core.channels.models.ECommunicationChannelType;
+import cat.albirar.communications.core.channels.models.LocalizableAttributesCommunicationChannelBean;
+import cat.albirar.communications.core.messages.models.MessageBean;
 import cat.albirar.template.engine.EContentType;
 
 /**

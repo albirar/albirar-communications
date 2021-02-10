@@ -3,4 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 http://maven.apache.org/xsd/decoration-1.8.0.xsd"
 	combine.self="merge">
+	<body>
+		<menu name="Releases" title="Releases">
+			<item name="Maven Central" title="Maven Central"
+				img="images/maven-logo-black-on-white-32px.png"
+				href="https://search.maven.org/artifact/${project.groupId}/${project.artifactId}" />
+		</menu>
+	</body>
 </project>

@@ -27,7 +27,7 @@ The properties are:
 
 This provider are "discovered" by default if SpringBoot *autoconfiguration* is enabled.
 
-Also, if *autoconfiguration* is dissabled, you should to use the annotation `cat.albirar.communications.providers.sms.clickandsend.configuration.AutoconfigureClickAndSendSmsProvider` in your configuration class:
+Also, if *autoconfiguration* is dissabled, you should to use the annotation `cat.albirar.communications.core.core.providers.sms.clickandsend.configuration.AutoconfigureClickAndSendSmsProvider` in your configuration class:
 
 ```java
 @Configuration

@@ -36,8 +36,8 @@ import org.springframework.core.env.EnumerablePropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
-import cat.albirar.communications.configuration.IPropertiesComm;
+import cat.albirar.communications.core.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.core.configuration.IPropertiesComm;
 import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider;
 import cat.albirar.communications.providers.email.javamail.models.JavaMailPropertiesBean;
 

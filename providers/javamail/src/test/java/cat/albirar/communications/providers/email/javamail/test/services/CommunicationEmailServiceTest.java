@@ -32,9 +32,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.util.StringUtils;
 
-import cat.albirar.communications.messages.models.MessageBean;
+import cat.albirar.communications.core.messages.models.MessageBean;
+import cat.albirar.communications.core.services.ICommunicationService;
 import cat.albirar.communications.providers.email.javamail.test.containers.EmailTestContainerExtension;
-import cat.albirar.communications.services.ICommunicationService;
 import cat.albirar.template.engine.EContentType;
 
 /**

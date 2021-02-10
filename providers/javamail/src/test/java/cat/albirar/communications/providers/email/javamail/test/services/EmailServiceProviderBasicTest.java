@@ -23,9 +23,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.core.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.core.providers.IServiceProvider;
 import cat.albirar.communications.providers.AbstractServiceProviderBasicTest;
-import cat.albirar.communications.providers.IServiceProvider;
 import cat.albirar.communications.providers.email.javamail.configuration.JavaMailSenderConfiguration;
 import cat.albirar.communications.providers.email.javamail.impl.JavaMailSenderEmailProvider;
 import cat.albirar.communications.test.RabbitMqContainerExtension;

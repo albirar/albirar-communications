@@ -32,7 +32,7 @@ The properties are:
 
 This provider are "discovered" by default if SpringBoot *autoconfiguration* is enabled.
 
-Also, if *autoconfiguration* is dissabled, you should to use the annotation `cat.albirar.communications.providers.email.javamail.configuration.AutoconfigureJavamailEmailProvider` in your configuration class:
+Also, if *autoconfiguration* is dissabled, you should to use the annotation `cat.albirar.communications.core.core.providers.email.javamail.configuration.AutoconfigureJavamailEmailProvider` in your configuration class:
 
 ```java
 @Configuration

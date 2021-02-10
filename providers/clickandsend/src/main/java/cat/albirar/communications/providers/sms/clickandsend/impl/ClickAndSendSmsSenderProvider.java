@@ -31,10 +31,10 @@ import ClickSend.ApiResponse;
 import ClickSend.Api.SmsApi;
 import ClickSend.Model.SmsMessage;
 import ClickSend.Model.SmsMessageCollection;
-import cat.albirar.communications.channels.models.ContactBean;
-import cat.albirar.communications.channels.models.ECommunicationChannelType;
-import cat.albirar.communications.providers.ProviderException;
-import cat.albirar.communications.providers.sms.ISmsSenderProvider;
+import cat.albirar.communications.core.channels.models.ContactBean;
+import cat.albirar.communications.core.channels.models.ECommunicationChannelType;
+import cat.albirar.communications.core.providers.ProviderException;
+import cat.albirar.communications.core.providers.sms.ISmsSenderProvider;
 
 /**
  * Click & Send SMS service provider.

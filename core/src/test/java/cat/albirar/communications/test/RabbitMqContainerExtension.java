@@ -28,7 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.RabbitMQContainer;
 
-import cat.albirar.communications.configuration.IPropertiesComm;
+import cat.albirar.communications.core.configuration.IPropertiesComm;
 
 /**
  * A {@link Extension} for containerizing a RabbitMQ server for test purposes.

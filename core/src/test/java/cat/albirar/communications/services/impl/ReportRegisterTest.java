@@ -40,13 +40,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import cat.albirar.communications.channels.models.ContactBean;
-import cat.albirar.communications.channels.models.ECommunicationChannelType;
-import cat.albirar.communications.channels.models.LocalizableAttributesCommunicationChannelBean;
-import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
-import cat.albirar.communications.services.IReportRegister;
-import cat.albirar.communications.status.EStatusMessage;
-import cat.albirar.communications.status.models.MessageStatusBean;
+import cat.albirar.communications.core.channels.models.ContactBean;
+import cat.albirar.communications.core.channels.models.ECommunicationChannelType;
+import cat.albirar.communications.core.channels.models.LocalizableAttributesCommunicationChannelBean;
+import cat.albirar.communications.core.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.core.services.IReportRegister;
+import cat.albirar.communications.core.services.impl.ReportRegister;
+import cat.albirar.communications.core.status.EStatusMessage;
+import cat.albirar.communications.core.status.models.MessageStatusBean;
 import cat.albirar.template.engine.EContentType;
 
 /**

@@ -41,11 +41,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.util.StringUtils;
 
-import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
-import cat.albirar.communications.messages.models.MessageBean;
-import cat.albirar.communications.services.ICommunicationService;
-import cat.albirar.communications.status.EStatusMessage;
-import cat.albirar.communications.status.models.MessageStatusBean;
+import cat.albirar.communications.core.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.core.messages.models.MessageBean;
+import cat.albirar.communications.core.services.ICommunicationService;
+import cat.albirar.communications.core.status.EStatusMessage;
+import cat.albirar.communications.core.status.models.MessageStatusBean;
 import cat.albirar.communications.test.RabbitMqContainerExtension;
 import cat.albirar.communications.test.configuration.TestMessagesFactory;
 

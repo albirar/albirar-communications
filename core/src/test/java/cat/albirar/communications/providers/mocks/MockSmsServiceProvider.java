@@ -24,10 +24,10 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.stereotype.Component;
 
-import cat.albirar.communications.channels.models.ContactBean;
-import cat.albirar.communications.providers.ProviderException;
+import cat.albirar.communications.core.channels.models.ContactBean;
+import cat.albirar.communications.core.providers.ProviderException;
+import cat.albirar.communications.core.providers.sms.ISmsSenderProvider;
 import cat.albirar.communications.providers.email.SmsPushBean;
-import cat.albirar.communications.providers.sms.ISmsSenderProvider;
 
 /**
  * An implementation for {@link ISmsSenderProvider} for test purposes.

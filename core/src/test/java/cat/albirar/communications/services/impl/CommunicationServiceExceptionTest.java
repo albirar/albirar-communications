@@ -40,11 +40,12 @@ import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
-import cat.albirar.communications.messages.models.MessageBean;
-import cat.albirar.communications.services.ICommunicationService;
-import cat.albirar.communications.services.ServiceException;
-import cat.albirar.communications.status.models.MessageStatusBean;
+import cat.albirar.communications.core.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.core.messages.models.MessageBean;
+import cat.albirar.communications.core.services.ICommunicationService;
+import cat.albirar.communications.core.services.ServiceException;
+import cat.albirar.communications.core.services.impl.CommunicationServiceImpl;
+import cat.albirar.communications.core.status.models.MessageStatusBean;
 import cat.albirar.communications.test.RabbitMqContainerExtension;
 import cat.albirar.communications.test.configuration.CoreCommunicationsTestConfiguration;
 import cat.albirar.communications.test.configuration.TestMessagesFactory;

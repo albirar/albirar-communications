@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=cat.albirar.communications.providers.email.javamail.configuration.JavaMailSenderConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cat.albirar.communications.core.core.providers.email.javamail.configuration.JavaMailSenderConfiguration

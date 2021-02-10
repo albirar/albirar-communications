@@ -36,9 +36,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.ContextConfiguration;
 
-import cat.albirar.communications.services.ICommunicationService;
-import cat.albirar.communications.status.EStatusMessage;
-import cat.albirar.communications.status.models.MessageStatusBean;
+import cat.albirar.communications.core.services.ICommunicationService;
+import cat.albirar.communications.core.status.EStatusMessage;
+import cat.albirar.communications.core.status.models.MessageStatusBean;
 import cat.albirar.template.engine.EContentType;
 
 /**

@@ -18,8 +18,8 @@
  */
 package cat.albirar.communications.providers.mocks;
 
+import cat.albirar.communications.core.providers.sms.ISmsSenderProvider;
 import cat.albirar.communications.providers.email.SmsPushBean;
-import cat.albirar.communications.providers.sms.ISmsSenderProvider;
 
 /**
  * Interface for test mock sms service.

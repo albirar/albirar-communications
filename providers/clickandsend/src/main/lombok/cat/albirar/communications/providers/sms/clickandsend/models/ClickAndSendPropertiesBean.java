@@ -25,7 +25,7 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import cat.albirar.communications.configuration.IPropertiesComm;
+import cat.albirar.communications.core.configuration.IPropertiesComm;
 import lombok.Data;
 import lombok.Setter;
 

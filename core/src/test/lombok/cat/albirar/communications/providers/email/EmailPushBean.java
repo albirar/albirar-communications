@@ -22,7 +22,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import cat.albirar.communications.channels.models.ContactBean;
+import cat.albirar.communications.core.channels.models.ContactBean;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;

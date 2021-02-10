@@ -26,7 +26,7 @@ import org.springframework.context.annotation.Configuration;
 
 import ClickSend.ApiClient;
 import ClickSend.Api.SmsApi;
-import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.core.configuration.AlbirarCommunicationsConfiguration;
 import cat.albirar.communications.providers.sms.clickandsend.impl.ClickAndSendSmsSenderProvider;
 import cat.albirar.communications.providers.sms.clickandsend.models.ClickAndSendPropertiesBean;
 

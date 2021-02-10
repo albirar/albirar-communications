@@ -43,7 +43,6 @@
 			<item name="Requirements" href="requirements.html"  />
 			<item name="Status" href="status.html" />
 			<item name="Info" href="project-info.html" />
-			<item name="Reports" href="project-reports.html" />
 			<item name="JavaDocs" href="apidocs" />
 		</menu>
 		<menu name="Code" title="Code" inherit="top">
@@ -62,7 +61,7 @@
 				img="images/Octocat-32px.png">
 				<description>${this.issueManagement.system} Issues</description>
 			</item>
-			<item name="Coverage" href="cobertura"
+			<item name="Coverage" href="https://codeclimate.com/github/albirar/albirar-communications/code"
 				title="Coverage"
 				img="images/bar_char.png">
 				<description>Code coverage</description>

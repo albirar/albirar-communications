@@ -9,4 +9,5 @@
 | Technical Debt | [![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/albirar/albirar-communications?logo=code-climate)](https://codeclimate.com/github/albirar/albirar-communications) |
 | Maven Central | [![Maven Central](https://img.shields.io/maven-central/v/cat.albirar.lib/albirar-communications?logo=apache-maven "Maven Central version")](https://search.maven.org/artifact/cat.albirar.lib/albirar-communications) |
 | Dependencies | [![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/albirar/albirar-communications)](https://libraries.io/github/albirar/albirar-communications) |
+| License | [![GitHub](https://img.shields.io/github/license/albirar/albirar-communications)](https://www.gnu.org/licenses/gpl-3.0-standalone.html) |
 

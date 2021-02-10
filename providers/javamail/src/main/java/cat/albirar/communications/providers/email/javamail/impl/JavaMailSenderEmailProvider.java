@@ -31,9 +31,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
-import cat.albirar.communications.channels.models.ContactBean;
-import cat.albirar.communications.providers.ProviderException;
-import cat.albirar.communications.providers.email.IEmailProvider;
+import cat.albirar.communications.core.channels.models.ContactBean;
+import cat.albirar.communications.core.providers.ProviderException;
+import cat.albirar.communications.core.providers.email.IEmailProvider;
 
 /**
  * An email provider that uses a {@link JavaMailSender}.

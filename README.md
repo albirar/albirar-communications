@@ -8,6 +8,7 @@ Can be used with spring-framework alone or on a spring-boot application.
 [![Spring boot 2.3.x](https://img.shields.io/badge/Spring%20Boot-2.3-informational?logo=spring)](https://docs.spring.io/spring-boot/docs/2.3.x/reference/html/)
 [![Spring Framework 5.2.x](https://img.shields.io/badge/Spring%20Framework-5.2-informational?logo=spring)](https://docs.spring.io/spring-framework/docs/5.2.x/spring-framework-reference/)
 [![RabbitMQ 3.8.x](https://img.shields.io/badge/RabbitMQ-v3.8.x-informational?logo=rabbitmq)](https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.8.4)
+[![GitHub](https://img.shields.io/github/license/albirar/albirar-communications)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
 
 # Status
 See [Status](https://albirar.github.io/albirar-communications/status.html "Status")

@@ -24,7 +24,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 
-import cat.albirar.communications.configuration.IPropertiesComm;
+import cat.albirar.communications.core.configuration.IPropertiesComm;
 
 /**
  * The app configuration to test autoconfiguration.

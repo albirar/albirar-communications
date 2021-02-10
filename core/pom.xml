@@ -123,13 +123,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-publish-plugin</artifactId>
-				<configuration>
-					<subDirectory>${core-site-subdir}</subDirectory>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 </project>

@@ -22,7 +22,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import cat.albirar.communications.configuration.AlbirarCommunicationsConfiguration;
+import cat.albirar.communications.core.configuration.AlbirarCommunicationsConfiguration;
 
 /**
  * A convenient abstract class to derive to any test.

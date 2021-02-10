@@ -28,9 +28,9 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 
 import ClickSend.Api.SmsApi;
-import cat.albirar.communications.channels.models.ContactBean;
-import cat.albirar.communications.channels.models.ECommunicationChannelType;
-import cat.albirar.communications.channels.models.LocalizableAttributesCommunicationChannelBean;
+import cat.albirar.communications.core.channels.models.ContactBean;
+import cat.albirar.communications.core.channels.models.ECommunicationChannelType;
+import cat.albirar.communications.core.channels.models.LocalizableAttributesCommunicationChannelBean;
 import cat.albirar.communications.providers.sms.clickandsend.configuration.ClickAndSendSmsConfiguration;
 
 /**

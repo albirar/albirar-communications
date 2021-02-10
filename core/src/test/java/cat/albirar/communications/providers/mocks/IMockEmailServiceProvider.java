@@ -18,8 +18,8 @@
  */
 package cat.albirar.communications.providers.mocks;
 
+import cat.albirar.communications.core.providers.email.IEmailProvider;
 import cat.albirar.communications.providers.email.EmailPushBean;
-import cat.albirar.communications.providers.email.IEmailProvider;
 
 /**
  * Interface for test mock email service.

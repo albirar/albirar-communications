@@ -24,7 +24,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.validation.annotation.Validated;
 
-import cat.albirar.communications.providers.ProviderException;
+import cat.albirar.communications.core.providers.ProviderException;
 import cat.albirar.communications.providers.email.RootPushBean;
 
 /**
