@@ -112,6 +112,22 @@
 	<reporting>
 		<plugins>
 			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>cobertura-integration-test</report>
+						</reports>
+						<configuration>
+							<format>html</format>
+							<format>xml</format>
+							<aggregate>true</aggregate>
+						</configuration>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-changes-plugin</artifactId>
 				<configuration>
