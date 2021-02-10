@@ -17,7 +17,7 @@
 		<javamail-site-url>${providers-site-url}/${javamail-name}</javamail-site-url>
 		<javamail-dist-site-url>${providers-dist-site-url}/${javamail-name}</javamail-dist-site-url>
 	</properties>
-	<artifactId>albirar-communications-provider-javamail</artifactId>
+	<artifactId>albirar-communications-providers-javamail</artifactId>
 	<packaging>jar</packaging>
 	<name>Albirar Communications Library - EMail Provider with JavaMail</name>
 	<description>A email provider with javamail</description>

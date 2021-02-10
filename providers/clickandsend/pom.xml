@@ -19,7 +19,7 @@
 		<cs-dist-site-url>${providers-dist-site-url}/${cs-name}</cs-dist-site-url>
 	</properties>
 
-	<artifactId>albirar-communications-provider-clickandsend</artifactId>
+	<artifactId>albirar-communications-providers-clickandsend</artifactId>
 	<packaging>jar</packaging>
 	<name>Albirar Communications Library - SMS Provider for ClickAndSend service</name>
 	<description>A SMS provider for ClickAndSend</description>

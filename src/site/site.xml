@@ -73,9 +73,15 @@
 			</item>
 		</menu>
 		<menu name="Releases" title="Releases" inherit="top">
-			<item name="Maven Central" title="Maven Central"
+			<item name="Maven Central - Core" title="Maven Central - Core"
 				img="images/maven-logo-black-on-white-32px.png"
-				href="https://search.maven.org/artifact/${this.groupId}/${this.artifactId}" />
+				href="https://search.maven.org/artifact/${this.groupId}/${this.artifactId}-core" />
+			<item name="Maven Central - Provider Javamail" title="Maven Central - Provider Javamail"
+				img="images/maven-logo-black-on-white-32px.png"
+				href="https://search.maven.org/artifact/${this.groupId}/${this.artifactId}-providers-javamail" />
+			<item name="Maven Central - Provider Click&amp;Send" title="Maven Central - Provider Click&amp;Send"
+				img="images/maven-logo-black-on-white-32px.png"
+				href="https://search.maven.org/artifact/${this.groupId}/${this.artifactId}-providers-clickandsend" />
 		</menu>
 	</body>
 </project>
