@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.9765625" branch-rate="1.0" lines-covered="250" lines-valid="256" branches-covered="22" branches-valid="22" complexity="1.673913043478261" version="2.1.1" timestamp="1613048125247">
+<coverage line-rate="0.9765625" branch-rate="1.0" lines-covered="250" lines-valid="256" branches-covered="22" branches-valid="22" complexity="1.673913043478261" version="2.1.1" timestamp="1613065873592">
 	<sources>
 		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/core/src/main/java</source>
 		<source>--source</source>
@@ -767,7 +767,7 @@
 						</method>
 						<method name="getAndDeleteReport" signature="(Ljava/lang/String;)Ljava/util/Optional;" line-rate="0.8571428571428571" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="65" hits="206" branch="false"/>
+								<line number="65" hits="205" branch="false"/>
 								<line number="66" hits="206" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
@@ -786,7 +786,7 @@
 						</method>
 						<method name="getReport" signature="(Ljava/lang/String;)Ljava/util/Optional;" line-rate="0.8571428571428571" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="51" hits="199" branch="false"/>
+								<line number="51" hits="200" branch="false"/>
 								<line number="52" hits="200" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
@@ -805,7 +805,7 @@
 						</method>
 						<method name="isReport" signature="(Ljava/lang/String;)Z" line-rate="0.8571428571428571" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="79" hits="520" branch="false"/>
+								<line number="79" hits="519" branch="false"/>
 								<line number="80" hits="520" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
@@ -824,7 +824,7 @@
 						</method>
 						<method name="putReport" signature="(Ljava/lang/String;Ljava/lang/String;Lcat/albirar/communications/core/status/models/MessageStatusBean;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="95" hits="412" branch="false"/>
+								<line number="95" hits="411" branch="false"/>
 								<line number="96" hits="412" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
@@ -855,7 +855,7 @@
 						<line number="43" hits="5" branch="false"/>
 						<line number="44" hits="5" branch="false"/>
 						<line number="45" hits="5" branch="false"/>
-						<line number="51" hits="199" branch="false"/>
+						<line number="51" hits="200" branch="false"/>
 						<line number="52" hits="200" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
@@ -870,7 +870,7 @@
 						<line number="56" hits="99" branch="false"/>
 						<line number="57" hits="100" branch="false"/>
 						<line number="58" hits="0" branch="false"/>
-						<line number="65" hits="206" branch="false"/>
+						<line number="65" hits="205" branch="false"/>
 						<line number="66" hits="206" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
@@ -885,7 +885,7 @@
 						<line number="70" hits="100" branch="false"/>
 						<line number="71" hits="100" branch="false"/>
 						<line number="72" hits="0" branch="false"/>
-						<line number="79" hits="520" branch="false"/>
+						<line number="79" hits="519" branch="false"/>
 						<line number="80" hits="520" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
@@ -900,7 +900,7 @@
 						<line number="84" hits="401" branch="false"/>
 						<line number="85" hits="413" branch="false"/>
 						<line number="86" hits="0" branch="false"/>
-						<line number="95" hits="412" branch="false"/>
+						<line number="95" hits="411" branch="false"/>
 						<line number="96" hits="412" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
