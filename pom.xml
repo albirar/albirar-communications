@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>cat.albirar</groupId>
 		<artifactId>albirar-root-dependencies</artifactId>
-		<version>2.0.9</version>
+		<version>2.0.10</version>
 	</parent>
 
 	<properties>
@@ -20,7 +20,7 @@
 
 	<groupId>cat.albirar.lib</groupId>
 	<artifactId>albirar-communications</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<packaging>pom</packaging>
 	<name>Albirar Communications Library</name>
 	<description>Root pom for all communications library components</description>
@@ -204,6 +204,16 @@
 
 		<!-- This project plugins -->
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<configuration>
+					<aggregate>true</aggregate>
+					<formats>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
