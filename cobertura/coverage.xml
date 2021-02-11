@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.9818731117824774" branch-rate="1.0" lines-covered="325" lines-valid="331" branches-covered="30" branches-valid="30" complexity="1.7115384615384615" version="2.1.1" timestamp="1613045991307">
+<coverage line-rate="0.9818731117824774" branch-rate="1.0" lines-covered="325" lines-valid="331" branches-covered="30" branches-valid="30" complexity="1.7115384615384615" version="2.1.1" timestamp="1613048385336">
 	<sources>
 		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/core/src/main/java</source>
 		<source>--source</source>
@@ -331,8 +331,8 @@
 								<line number="72" hits="24" branch="false"/>
 								<line number="73" hits="24" branch="false"/>
 								<line number="75" hits="24" branch="false"/>
-								<line number="77" hits="21" branch="false"/>
-								<line number="78" hits="19" branch="false"/>
+								<line number="77" hits="22" branch="false"/>
+								<line number="78" hits="20" branch="false"/>
 								<line number="79" hits="16" branch="false"/>
 								<line number="80" hits="16" branch="false"/>
 								<line number="81" hits="2" branch="false"/>
@@ -378,8 +378,8 @@
 						<line number="72" hits="24" branch="false"/>
 						<line number="73" hits="24" branch="false"/>
 						<line number="75" hits="24" branch="false"/>
-						<line number="77" hits="21" branch="false"/>
-						<line number="78" hits="19" branch="false"/>
+						<line number="77" hits="22" branch="false"/>
+						<line number="78" hits="20" branch="false"/>
 						<line number="79" hits="16" branch="false"/>
 						<line number="80" hits="16" branch="false"/>
 						<line number="81" hits="2" branch="false"/>
@@ -787,19 +787,19 @@
 						</method>
 						<method name="getReport" signature="(Ljava/lang/String;)Ljava/util/Optional;" line-rate="0.8571428571428571" branch-rate="1.0" complexity="0">
 							<lines>
-								<line number="51" hits="200" branch="false"/>
+								<line number="51" hits="199" branch="false"/>
 								<line number="52" hits="200" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
 									</conditions>
 								</line>
-								<line number="53" hits="198" branch="true" condition-coverage="100% (2/2)">
+								<line number="53" hits="199" branch="true" condition-coverage="100% (2/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="100%"/>
 									</conditions>
 								</line>
 								<line number="54" hits="100" branch="false"/>
-								<line number="56" hits="98" branch="false"/>
+								<line number="56" hits="99" branch="false"/>
 								<line number="57" hits="100" branch="false"/>
 								<line number="58" hits="0" branch="false"/>
 							</lines>
@@ -856,19 +856,19 @@
 						<line number="43" hits="5" branch="false"/>
 						<line number="44" hits="5" branch="false"/>
 						<line number="45" hits="5" branch="false"/>
-						<line number="51" hits="200" branch="false"/>
+						<line number="51" hits="199" branch="false"/>
 						<line number="52" hits="200" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
 							</conditions>
 						</line>
-						<line number="53" hits="198" branch="true" condition-coverage="100% (2/2)">
+						<line number="53" hits="199" branch="true" condition-coverage="100% (2/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="100%"/>
 							</conditions>
 						</line>
 						<line number="54" hits="100" branch="false"/>
-						<line number="56" hits="98" branch="false"/>
+						<line number="56" hits="99" branch="false"/>
 						<line number="57" hits="100" branch="false"/>
 						<line number="58" hits="0" branch="false"/>
 						<line number="65" hits="206" branch="false"/>
