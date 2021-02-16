@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" child.project.url.inherit.append.path="false">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+	child.project.url.inherit.append.path="false">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -9,6 +12,7 @@
 	</parent>
 
 	<properties>
+		<tools-jar>${java.home}/../lib/tools.jar</tools-jar>
 		<scm.site>scm:git:ssh://git@github.com/albirar/albirar-communications.git</scm.site>
 		<albirar-template.version>2.0.2</albirar-template.version>
 		<root-site-url>https://albirar.github.io/albirar-communications</root-site-url>
@@ -98,7 +102,8 @@
 			<groupId>com.sun</groupId>
 			<artifactId>tools</artifactId>
 			<version>0</version>
-			<scope>runtime</scope>
+			<scope>system</scope>
+			<systemPath>${tools-jar}</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>net.sourceforge.cobertura</groupId>
@@ -204,6 +209,36 @@
 
 		<!-- This project plugins -->
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireFilesExist>
+									<files>
+										<file>${tools-jar}</file>
+									</files>
+								</requireFilesExist>
+								
+								<requireMavenVersion>
+									<version>[3.6.0,3.7.0)</version>
+								</requireMavenVersion>
+								
+								<requireJavaVersion>
+									<version>[1.8.0,1.9.0)</version>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
