@@ -10,17 +10,15 @@
 
 	<properties>
 		<cs.version>1.0.0</cs.version>
-		<cs-name>clickandsend</cs-name>
-		<cs-site-subdir>${providers-site-subdir}/${cs-name}</cs-site-subdir>
-		<cs-site-url>${providers-site-url}/${cs-name}</cs-site-url>
-		<cs-dist-site-url>${providers-dist-site-url}/${cs-name}</cs-dist-site-url>
+		<cs-dist-site-url>${providers-dist-site-url}/clickandsend</cs-dist-site-url>
 	</properties>
 
 	<artifactId>albirar-communications-providers-clickandsend</artifactId>
 	<packaging>jar</packaging>
 	<name>Albirar Communications Library - SMS Provider for ClickAndSend service</name>
 	<description>A SMS provider for ClickAndSend</description>
-	<url>${cs-site-url}/</url>
+	<url>https://albirar.github.io/albirar-communications/providers/clickandsend/</url>
+	
 	<distributionManagement>
 		<site>
 			<id>albirar-site_github_cs</id>

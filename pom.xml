@@ -15,11 +15,9 @@
 		<tools-jar>${java.home}/../lib/tools.jar</tools-jar>
 		<scm.site>scm:git:ssh://git@github.com/albirar/albirar-communications.git</scm.site>
 		<albirar-template.version>2.0.2</albirar-template.version>
-		<root-site-url>https://albirar.github.io/albirar-communications</root-site-url>
-		<!-- <root-dist-site-url>https://albirar.github.io/albirar-communications</root-dist-site-url> -->
 		<root-dist-site-url>file:///home/octavi/Dropbox/feina/projectes/fam/albirar-communications/target/staging</root-dist-site-url>
-
 		<resource-package>${project.parent.groupId}:${project.parent.artifactId}:${project.parent.version}:jar:assembly-resources</resource-package>
+		<rabbitmq-container.version>1.15.2</rabbitmq-container.version>
 	</properties>
 
 	<groupId>cat.albirar.lib</groupId>
@@ -28,7 +26,7 @@
 	<packaging>pom</packaging>
 	<name>Albirar Communications Library</name>
 	<description>Root pom for all communications library components</description>
-	<url>${root-site-url}/</url>
+	<url>https://albirar.github.io/albirar-communications/</url>
 
 	<distributionManagement>
 		<site>
@@ -171,7 +169,7 @@
 					<version>1.7.0</version>
 					<configuration>
 						<resourceBundles>
-							<resourceBundle>cat.albirar:albirar-root-dependencies:2.0.9:jar:assembly-resources</resourceBundle>
+							<resourceBundle>cat.albirar:albirar-root-dependencies:2.1.0:jar:assembly-resources</resourceBundle>
 						</resourceBundles>
 						<outputDirectory>${project.build.directory}/site</outputDirectory>
 					</configuration>
@@ -270,6 +268,7 @@
 					<skipDeployement>false</skipDeployement>
 					<scmBranch>gh-pages</scmBranch>
 					<pubScmUrl>${scm.site}</pubScmUrl>
+					<content>${project.build.directory}/staging</content>
 				</configuration>
 				<inherited>false</inherited>
 			</plugin>
