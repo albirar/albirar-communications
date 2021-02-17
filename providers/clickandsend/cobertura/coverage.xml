@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="1.0" branch-rate="1.0" lines-covered="29" lines-valid="29" branches-covered="6" branches-valid="6" complexity="2.0" version="2.1.1" timestamp="1613584812696">
+<coverage line-rate="1.0" branch-rate="1.0" lines-covered="29" lines-valid="29" branches-covered="6" branches-valid="6" complexity="2.0" version="2.1.1" timestamp="1613588682507">
 	<sources>
 		<source>--source</source>
 		<source>/home/octavi/Dropbox/feina/projectes/fam/albirar-communications/providers/clickandsend/src/main/java</source>
