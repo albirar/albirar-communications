@@ -1,0 +1,13 @@
+cat.albirar.communications.core.channels.models
+cat.albirar.communications.core.configuration
+cat.albirar.communications.core.configuration.models
+cat.albirar.communications.core.messages.models
+cat.albirar.communications.core.processors
+cat.albirar.communications.core.processors.impl
+cat.albirar.communications.core.providers
+cat.albirar.communications.core.providers.email
+cat.albirar.communications.core.providers.sms
+cat.albirar.communications.core.services
+cat.albirar.communications.core.services.impl
+cat.albirar.communications.core.status
+cat.albirar.communications.core.status.models
