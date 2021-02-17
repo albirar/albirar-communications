@@ -5,20 +5,18 @@
 	<parent>
 		<groupId>cat.albirar.lib</groupId>
 		<artifactId>albirar-communications</artifactId>
-		<version>1.3.0-SNAPSHOT</version>
+		<version>1.3.0</version>
 	</parent>
 
 	<properties>
-		<core-site-subdir>core</core-site-subdir>
-		<core-site-url>${root-site-url}/${core-site-subdir}</core-site-url>
-		<core-dist-site-url>${root-dist-site-url}/${core-site-subdir}</core-dist-site-url>
+		<core-dist-site-url>${root-dist-site-url}/core</core-dist-site-url>
 	</properties>
 
 	<artifactId>albirar-communications-core</artifactId>
 	<packaging>jar</packaging>
 	<name>Albirar Communications Library - Core</name>
 	<description>Some services to abstract action of communicate with email or sms</description>
-	<url>${core-site-url}/</url>
+	<url>https://albirar.github.io/albirar-communications/core/</url>
 
 	<distributionManagement>
 		<site>
