@@ -14,11 +14,13 @@
 	<properties>
 		<tools-jar>${java.home}/../lib/tools.jar</tools-jar>
 		<scm.site>scm:git:ssh://git@github.com/albirar/albirar-communications.git</scm.site>
-		<albirar-template.version>2.0.2</albirar-template.version>
 		<root-dist-site-url>file:///home/octavi/Dropbox/feina/projectes/fam/albirar-communications/target/staging</root-dist-site-url>
 		<resource-package>${project.parent.groupId}:${project.parent.artifactId}:${project.parent.version}:jar:assembly-resources</resource-package>
+		
 		<rabbitmq-container.version>1.15.2</rabbitmq-container.version>
+		<albirar-template.version>2.1.0</albirar-template.version>
 	</properties>
+
 
 	<groupId>cat.albirar.lib</groupId>
 	<artifactId>albirar-communications</artifactId>
