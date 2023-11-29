@@ -18,7 +18,7 @@
 		<resource-package>${project.parent.groupId}:${project.parent.artifactId}:${project.parent.version}:jar:assembly-resources</resource-package>
 		
 		<rabbitmq-container.version>1.15.2</rabbitmq-container.version>
-		<albirar-template.version>2.1.0</albirar-template.version>
+		<albirar-template.version>3.2.0</albirar-template.version>
 	</properties>
 
 
